@@ -1,0 +1,38 @@
+appId: com.saucelabs.mydemo.app.ios
+---
+- launchApp:
+    clearState: true
+---
+- loginWithCredentials:
+    email: ${email}
+    password: ${password}
+- tapOn: ${email}
+- tapOn:
+    point: 207, 398
+- inputText: ${password}
+- tapOn: "LOGIN"
+- assertVisible: "Catalog"
+---
+- loginWithInvalidEmail:
+    email: ${email}
+    password: ${password}
+- tapOn: ${email}
+- tapOn:
+    point: 207, 398
+- inputText: ${password}
+- tapOn: "LOGIN"
+- assertVisible: "Catalog"
+---
+- loginWithEmptyFields:
+- tapOn:
+    point: 207, 298
+- tapOn:
+    point: 207, 399
+- tapOn: "LOGIN"
+- assertVisible: "Validation Error!"
+---
+- login:
+    email: ${email}
+- tapOn: ${email}
+- tapOn: "LOGIN"
+- assertVisible: "Catalog"

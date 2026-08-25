@@ -1,0 +1,11 @@
+appId: com.saucelabs.mydemo.app.ios
+---
+- launchApp:
+    clearState: true
+- tapOn:
+    point: 207, 298
+- tapOn:
+    point: 207, 399
+- tapOn:
+    point: 207, 852
+- assertVisible: "Validation Error!"

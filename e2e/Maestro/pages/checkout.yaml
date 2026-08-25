@@ -1,0 +1,66 @@
+appId: com.saucelabs.mydemo.app.ios
+---
+- enterShippingAddress:
+    name: ${name}
+    address: ${address}
+    city: ${city}
+    zipCode: ${zipCode}
+    country: ${country}
+- tapOn: "Rebecca Winter"
+- eraseText
+- inputText: ${name}
+- tapOn: "Mandorley 112"
+- eraseText
+- inputText: ${address}
+- tapOn: "Truro"
+- eraseText
+- inputText: ${city}
+- tapOn: "89750"
+- eraseText
+- inputText: ${zipCode}
+- tapOn: "United Kingdom"
+- eraseText
+- inputText: ${country}
+---
+- enterPaymentDetails:
+    name: ${name}
+    cardNumber: ${cardNumber}
+    expiry: ${expiry}
+    securityCode: ${securityCode}
+- tapOn: "Maxim Winter"
+- eraseText
+- inputText: ${name}
+- tapOn: "3258 1265 7568 7896"
+- eraseText
+- inputText: ${cardNumber}
+- tapOn: "03/25"
+- eraseText
+- inputText: ${expiry}
+- tapOn: ${security_code}
+- eraseText
+- inputText: ${securityCode}
+---
+- reviewOrder:
+- tapOn: "Review Order"
+---
+- placeOrder:
+- tapOn: "Place Order"
+- assertVisible: "Checkout Complete"
+---
+- verifyOrderComplete:
+- assertVisible: "Checkout Complete"
+- assertVisible: "CHECKOUT: COMPLETE!"
+---
+- verifyOrderSummary:
+    productName: ${productName}
+    price: ${price}
+    name: ${name}
+    address: ${address}
+- assertVisible: ${productName}
+- assertVisible: ${price}
+- assertVisible: ${name}
+- assertVisible: ${address}
+---
+- cancelToProducts:
+- tapOn: "Products"
+- assertVisible: "Catalog"

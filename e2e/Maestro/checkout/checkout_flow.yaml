@@ -1,0 +1,68 @@
+appId: com.saucelabs.mydemo.app.ios
+---
+- launchApp:
+    clearState: true
+- tapOn:
+    point: 207, 298
+- tapOn:
+    point: 207, 398
+- inputText: "10203040"
+- tapOn:
+    point: 207, 852
+- tapOn:
+    point: 207, 100
+- tapOn:
+    point: 207, 188
+- tapOn:
+    point: 301, 572
+- tapOn:
+    point: 207, 100
+- tapOn:
+    point: 207, 100
+- tapOn:
+    point: 207, 750
+- tapOn:
+    point: 207, 298
+- eraseText
+- inputText: "Test User"
+- tapOn:
+    point: 207, 382
+- eraseText
+- inputText: "1 Test Street"
+- tapOn:
+    point: 207, 450
+- eraseText
+- inputText: "Test City"
+- tapOn:
+    point: 207, 520
+- eraseText
+- inputText: "12345"
+- tapOn:
+    point: 207, 590
+- eraseText
+- inputText: "Test Country"
+- tapOn:
+    point: 207, 760
+- tapOn:
+    point: 207, 298
+- eraseText
+- inputText: "Test User"
+- tapOn:
+    point: 207, 350
+- eraseText
+- inputText: "4111111111111111"
+- tapOn:
+    point: 207, 420
+- eraseText
+- inputText: "12/30"
+- tapOn:
+    point: 207, 490
+- eraseText
+- inputText: "123"
+- tapOn:
+    point: 207, 850
+- tapOn:
+    point: 207, 810
+- tapOn:
+    point: 207, 100
+- assertVisible: "No Items"

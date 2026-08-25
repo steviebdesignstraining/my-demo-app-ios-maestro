@@ -1,0 +1,312 @@
+name: iOS Maestro Tests & Report
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+env:
+  # Matches the Xcode/simulator combo already used by tests.yml, build.yml and
+  # release.yml in this repo. Bump both together if you need a newer simulator
+  # (e.g. "16.2" / "iPhone 16 Pro" to match the default in e2e/Maestro/run.sh).
+  XCODE_VERSION: "15.4"
+  SIMULATOR_NAME: "iPhone 15 Pro Max"
+  WORKSPACE: "My Demo App.xcworkspace"
+  SCHEME: "My Demo App"
+  # Point at the whole flow directory. The "List discovered Maestro flows" step
+  # walks it recursively and writes every .yaml/.yml (except config.yaml) to
+  # maestro-flows.txt, which is then expanded into explicit file paths for
+  # `maestro test`. This avoids Maestro's non-recursive directory scan and
+  # ensures newly added/subfoldered flows are picked up automatically.
+  MAESTRO_DIR: "e2e/Maestro"
+  MAESTRO_REPORT_PATH: "build/maestro-report.html"
+
+jobs:
+  # ============================================================
+  # 1. Build .app + Run Maestro iOS Tests
+  # ============================================================
+
+  build-and-test:
+    name: Build App & Run Maestro Tests
+    runs-on: macos-14
+    timeout-minutes: 45
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Select Xcode
+        uses: maxim-lobanov/setup-xcode@v1
+        with:
+          xcode-version: ${{ env.XCODE_VERSION }}
+
+      - name: Install xcpretty
+        run: gem install xcpretty
+
+      - name: Setup Java (required by Maestro CLI)
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - name: Cache Swift Package Manager
+        uses: actions/cache@v5
+        with:
+          path: |
+            build/SourcePackages
+            ~/Library/Developer/Xcode/DerivedData/**/SourcePackages
+          key: spm-${{ runner.os }}-${{ hashFiles('**/Package.resolved') }}
+          restore-keys: |
+            spm-${{ runner.os }}-
+
+      - name: Install Maestro CLI (Homebrew)
+        # Homebrew is preinstalled on GitHub-hosted macOS runners and is a more
+        # reliable install path in CI than piping the get.maestro.mobile.dev
+        # script through bash. No fallback/suppression here on purpose — if
+        # brew install fails, we want the step to fail loudly with brew's own
+        # error output rather than silently continuing.
+        shell: bash
+        run: |
+          set -euo pipefail
+          brew tap mobile-dev-inc/tap
+          brew install mobile-dev-inc/tap/maestro
+          # Don't assume /opt/homebrew — ask brew for its actual prefix and
+          # make sure that bin dir is on PATH for every subsequent step.
+          echo "$(brew --prefix)/bin" >> "$GITHUB_PATH"
+
+      - name: Verify Maestro installation
+        shell: bash
+        run: |
+          set -euo pipefail
+          echo "PATH=$PATH"
+          which maestro
+          maestro --version
+
+      - name: Discover Maestro flows
+        id: discover-flows
+        shell: bash
+        run: |
+          set -euo pipefail
+          find "$MAESTRO_DIR" -type f \( -name '*.yaml' -o -name '*.yml' \) ! -name 'config.yaml' ! -path '*/pages/*' | sort > maestro-flows.txt
+          FLOW_COUNT=$(wc -l < maestro-flows.txt | tr -d ' ')
+          if [ "$FLOW_COUNT" -eq 0 ]; then
+            echo "ERROR: no flow files found under $MAESTRO_DIR"
+            exit 1
+          fi
+          echo "Found $FLOW_COUNT flow file(s) under $MAESTRO_DIR:"
+          cat maestro-flows.txt
+
+      - name: Build debug app for iOS Simulator
+        shell: bash
+        run: |
+          set -o pipefail
+          rm -rf build
+          xcodebuild \
+            -workspace "$WORKSPACE" \
+            -scheme "$SCHEME" \
+            -configuration Debug \
+            -destination "generic/platform=iOS Simulator" \
+            -derivedDataPath build | xcpretty
+
+      - name: Locate built .app
+        shell: bash
+        run: |
+          APP_PATH="$(find build -name "My Demo App.app" -type d | head -n 1)"
+          if [ -z "$APP_PATH" ]; then
+            echo "ERROR: Built app not found under build/"
+            find build -maxdepth 4 || true
+            exit 1
+          fi
+          echo "App bundle found: $APP_PATH"
+          echo "APP_PATH=$APP_PATH" >> "$GITHUB_ENV"
+
+      - name: Boot iOS Simulator
+        shell: bash
+        run: |
+          set -euo pipefail
+          xcrun simctl boot "$SIMULATOR_NAME" || true
+          xcrun simctl list devices booted | grep -q "$SIMULATOR_NAME" \
+            || { echo "ERROR: Simulator '$SIMULATOR_NAME' is not booted"; xcrun simctl list devices; exit 1; }
+          echo "Simulator '$SIMULATOR_NAME' is booted."
+
+      - name: Install app on simulator
+        shell: bash
+        run: xcrun simctl install booted "$APP_PATH"
+
+      - name: Run Maestro tests
+        shell: bash
+        run: |
+          set +e
+
+          echo "::group::Maestro Test Suite"
+          echo "========================================"
+          echo "RUNNING MAESTRO FLOWS"
+          echo "========================================"
+
+          mkdir -p "$(dirname "$MAESTRO_REPORT_PATH")"
+          rm -rf maestro-debug
+          mkdir -p maestro-debug
+
+          # Forward any values from the checked-in e2e/Maestro/.env as --env
+          # flags for forward-compatibility with flows that start referencing
+          # ${VAR} placeholders. No-op today since no current flow uses them.
+          ENV_ARGS=()
+          if [ -f "$MAESTRO_DIR/.env" ]; then
+            while IFS='=' read -r key value; do
+              [[ -z "$key" || "$key" == \#* ]] && continue
+              ENV_ARGS+=(--env "$key=$value")
+            done < "$MAESTRO_DIR/.env"
+          fi
+
+          # Read all discovered flow files from the recursive scan and pass
+          # them explicitly to `maestro test`. This avoids Maestro's own
+          # non-recursive directory walk and guarantees every flow under
+          # $MAESTRO_DIR (including any subfolders) is executed.
+          FLOW_FILES=()
+          while IFS= read -r line; do
+            [ -n "$line" ] && FLOW_FILES+=("$line")
+          done < maestro-flows.txt
+          echo "Running ${#FLOW_FILES[@]} flow(s):"
+          printf '  - %s\n' "${FLOW_FILES[@]}"
+
+          maestro test \
+            --format html-detailed \
+            --output "$MAESTRO_REPORT_PATH" \
+            --debug-output maestro-debug \
+            "${ENV_ARGS[@]}" \
+            "${FLOW_FILES[@]}"
+
+          TEST_EXIT_CODE=$?
+
+          echo ""
+          echo "========================================"
+          echo "MAESTRO TEST COMPLETE"
+          echo "========================================"
+          echo "Exit code: $TEST_EXIT_CODE"
+
+          echo ""
+          echo "Report file:"
+          ls -lh "$MAESTRO_REPORT_PATH" 2>/dev/null || echo "(not found)"
+
+          echo "::endgroup::"
+
+          exit "$TEST_EXIT_CODE"
+
+      - name: Shut down simulator
+        if: always()
+        shell: bash
+        run: xcrun simctl shutdown "$SIMULATOR_NAME" || true
+
+      - name: Prepare Pages-ready report bundle
+        if: always()
+        shell: bash
+        run: |
+          mkdir -p maestro-report
+          if [ -f "$MAESTRO_REPORT_PATH" ]; then
+            cp "$MAESTRO_REPORT_PATH" maestro-report/maestro-report.html
+          else
+            echo "<html><body><h1>Maestro report was not generated. Check the job logs.</h1></body></html>" > maestro-report/maestro-report.html
+          fi
+          # GitHub Pages serves index.html at the site root by default — without
+          # it, the base URL (e.g. .../my-demo-app-ios-maestro/) 404s even
+          # though the report file itself uploaded fine. This is what was
+          # actually breaking the deployed link.
+          cp maestro-report/maestro-report.html maestro-report/index.html
+          touch maestro-report/.nojekyll
+
+          echo "========================================"
+          echo "PAGES BUNDLE CONTENTS (build-and-test job)"
+          echo "========================================"
+          ls -la maestro-report
+
+      - name: Upload Maestro HTML report
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: maestro-report
+          path: maestro-report
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload Maestro debug artifacts (screenshots/logs)
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: maestro-debug
+          path: maestro-debug
+          if-no-files-found: ignore
+          retention-days: 7
+
+  # ============================================================
+  # 2. Deploy Maestro HTML Report to GitHub Pages
+  # ============================================================
+
+  deploy-maestro-report:
+    name: Deploy Maestro Report
+    needs: build-and-test
+    if: always() && needs.build-and-test.result != 'cancelled'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Download Maestro HTML report
+        uses: actions/download-artifact@v5
+        with:
+          name: maestro-report
+          path: maestro-report
+
+      - name: Verify report
+        shell: bash
+        run: |
+          set -e
+          echo "========================================"
+          echo "DOWNLOADED ARTIFACT CONTENTS (deploy job)"
+          echo "========================================"
+          find maestro-report -type f
+          if [ ! -f "maestro-report/index.html" ]; then
+            echo "ERROR: index.html not found — Pages would 404 at the site root."
+            find maestro-report -type f
+            exit 1
+          fi
+          echo "Maestro report verified."
+          du -sh maestro-report
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: maestro-report
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+      - name: Display Maestro report URL
+        run: |
+          echo ""
+          echo "=========================================="
+          echo "MAESTRO REPORT DEPLOYED"
+          echo "=========================================="
+          echo ""
+          echo "${{ steps.deployment.outputs.page_url }}"

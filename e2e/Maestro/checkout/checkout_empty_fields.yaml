@@ -1,0 +1,43 @@
+appId: com.saucelabs.mydemo.app.ios
+---
+- launchApp:
+    clearState: true
+- tapOn:
+    point: 207, 298
+- tapOn:
+    point: 207, 852
+- tapOn:
+    point: 207, 100
+- tapOn:
+    point: 207, 188
+- tapOn:
+    "Add To Cart"
+- tapOn:
+    point: 207, 100
+- tapOn:
+    point: 207, 100
+- tapOn:
+    point: 207, 750
+- tapOn: "Rebecca Winter"
+- eraseText
+- tapOn: "Mandorley 112"
+- eraseText
+- tapOn: "Truro"
+- eraseText
+- tapOn: "89750"
+- eraseText
+- tapOn: "United Kingdom"
+- eraseText
+- tapOn:
+    point: 207, 760
+- tapOn: "Maxim Winter"
+- eraseText
+- tapOn: "3258 1265 7568 7896"
+- eraseText
+- tapOn: "03/25"
+- eraseText
+- tapOn: "123"
+- eraseText
+- tapOn:
+    point: 207, 850
+- assertVisible: "Checkout"

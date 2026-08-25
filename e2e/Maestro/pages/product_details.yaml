@@ -1,0 +1,13 @@
+appId: com.saucelabs.mydemo.app.ios
+---
+- viewProductDetails:
+    productName: ${productName}
+- tapOn: ${productName}
+- assertVisible: "Product Highlights"
+---
+- addToCart:
+- tapOn: "AddToCart"
+- assertVisible: "ADDED TO CART"
+---
+- backToCatalog:
+- tapOn: "Products"

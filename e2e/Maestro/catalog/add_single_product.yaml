@@ -1,0 +1,14 @@
+appId: com.saucelabs.mydemo.app.ios
+---
+- launchApp:
+    clearState: true
+- tapOn:
+    point: 207, 298
+- tapOn:
+    point: 207, 852
+- tapOn:
+    point: 207, 100
+- tapOn:
+    point: 301, 572
+- tapOn:
+    point: 25, 60
