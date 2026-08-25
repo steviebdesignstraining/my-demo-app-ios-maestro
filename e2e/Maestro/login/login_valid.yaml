@@ -2,11 +2,6 @@ appId: com.saucelabs.mydemo.app.ios
 ---
 - launchApp:
     clearState: true
-- tapOn:
-    point: 207, 298
-- tapOn:
-    point: 207, 398
-- inputText: "10203040"
-- tapOn:
-    point: 207, 852
+- tapOn: "bob@example.com"
+- tapOn: "Login"
 - assertVisible: "Catalog"

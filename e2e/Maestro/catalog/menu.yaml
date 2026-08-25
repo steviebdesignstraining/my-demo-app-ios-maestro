@@ -2,13 +2,8 @@ appId: com.saucelabs.mydemo.app.ios
 ---
 - launchApp:
     clearState: true
-- tapOn:
-    point: 207, 298
-- tapOn:
-    point: 207, 852
-- tapOn:
-    id: "More-tab-item"
-- tapOn:
-    point: 207, 200
-- tapOn:
-    point: 375, 60
+- tapOn: "bob@example.com"
+- tapOn: "Login"
+- tapOn: "More-tab-item"
+- tapOn: "Webview"
+- tapOn: "Catalog-tab-item"

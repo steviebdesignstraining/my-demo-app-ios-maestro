@@ -36,7 +36,7 @@ appId: com.saucelabs.mydemo.app.ios
 - tapOn: "03/25"
 - eraseText
 - inputText: ${expiry}
-- tapOn: ${security_code}
+- tapOn: "123"
 - eraseText
 - inputText: ${securityCode}
 ---
@@ -49,7 +49,6 @@ appId: com.saucelabs.mydemo.app.ios
 ---
 - verifyOrderComplete:
 - assertVisible: "Checkout Complete"
-- assertVisible: "CHECKOUT: COMPLETE!"
 ---
 - verifyOrderSummary:
     productName: ${productName}

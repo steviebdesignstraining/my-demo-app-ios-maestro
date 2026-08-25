@@ -2,22 +2,13 @@ appId: com.saucelabs.mydemo.app.ios
 ---
 - launchApp:
     clearState: true
-- tapOn:
-    point: 207, 298
-- tapOn:
-    point: 207, 852
-- tapOn:
-    point: 207, 100
-- tapOn:
-    point: 207, 188
-- tapOn:
-    "Add To Cart"
-- tapOn:
-    point: 207, 100
-- tapOn:
-    point: 207, 100
-- tapOn:
-    point: 207, 750
+- tapOn: "bob@example.com"
+- tapOn: "Login"
+- tapOn: "Catalog-tab-item"
+- tapOn: "ProductItem"
+- tapOn: "AddToCart"
+- tapOn: "Cart-tab-item"
+- tapOn: "ProceedToCheckout"
 - tapOn: "Rebecca Winter"
 - eraseText
 - inputText: "Updated User"
@@ -33,8 +24,6 @@ appId: com.saucelabs.mydemo.app.ios
 - tapOn: "United Kingdom"
 - eraseText
 - inputText: "Updated Country"
-- tapOn:
-    point: 207, 760
 - tapOn: "Maxim Winter"
 - eraseText
 - inputText: "Updated User"
@@ -47,9 +36,7 @@ appId: com.saucelabs.mydemo.app.ios
 - tapOn: "123"
 - eraseText
 - inputText: "123"
-- tapOn:
-    point: 207, 850
+- tapOn: "Review Order"
 - assertVisible: "Updated User"
 - assertVisible: "2 Updated Street"
-- tapOn:
-    point: 207, 810
+- tapOn: "Catalog-tab-item"

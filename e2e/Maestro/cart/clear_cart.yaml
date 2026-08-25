@@ -2,26 +2,17 @@ appId: com.saucelabs.mydemo.app.ios
 ---
 - launchApp:
     clearState: true
-- tapOn:
-    point: 207, 298
-- tapOn:
-    point: 207, 852
-- tapOn:
-    point: 207, 100
-- tapOn:
-    point: 207, 188
-- tapOn:
-    "Add To Cart"
-- tapOn:
-    point: 207, 100
-- tapOn:
-    id: "More-tab-item"
-- tapOn:
-    point: 207, 200
-- tapOn:
-    point: 207, 400
-- tapOn:
-    point: 207, 100
-- tapOn:
-    point: 207, 100
+- tapOn: "bob@example.com"
+- tapOn: "Login"
+- tapOn: "Catalog-tab-item"
+- tapOn: "ProductItem"
+- tapOn: "AddToCart"
+- tapOn: "Cart-tab-item"
+- tapOn: "More-tab-item"
+- tapOn: "ResetAppState-menu-item"
+- tapOn: "Catalog-tab-item"
+- tapOn: "Cart-tab-item"
+- tapOn: "ProductItem"
+- tapOn: "AddToCart"
+- tapOn: "Cart-tab-item"
 - assertVisible: "No Items"

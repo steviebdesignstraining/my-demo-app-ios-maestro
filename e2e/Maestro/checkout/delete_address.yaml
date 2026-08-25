@@ -2,51 +2,42 @@ appId: com.saucelabs.mydemo.app.ios
 ---
 - launchApp:
     clearState: true
-- tapOn:
-    point: 207, 298
-- tapOn:
-    point: 207, 852
-- tapOn:
-    point: 207, 100
-- tapOn:
-    point: 207, 188
-- tapOn:
-    "Add To Cart"
-- tapOn:
-    point: 207, 100
-- tapOn:
-    point: 207, 100
-- tapOn:
-    point: 207, 750
+- tapOn: "bob@example.com"
+- tapOn: "Login"
+- tapOn: "Catalog-tab-item"
+- tapOn: "ProductItem"
+- tapOn: "AddToCart"
+- tapOn: "Cart-tab-item"
+- tapOn: "ProceedToCheckout"
 - tapOn: "Rebecca Winter"
 - eraseText
+- inputText: "Test User"
 - tapOn: "Mandorley 112"
 - eraseText
+- inputText: "1 Test Street"
 - tapOn: "Truro"
 - eraseText
+- inputText: "Test City"
 - tapOn: "89750"
 - eraseText
+- inputText: "12345"
 - tapOn: "United Kingdom"
 - eraseText
-- tapOn:
-    point: 207, 760
+- inputText: "Test Country"
 - tapOn: "Maxim Winter"
 - eraseText
+- inputText: "Test User"
 - tapOn: "3258 1265 7568 7896"
 - eraseText
+- inputText: "4111111111111111"
 - tapOn: "03/25"
 - eraseText
+- inputText: "12/30"
 - tapOn: "123"
 - eraseText
-- tapOn:
-    point: 207, 850
+- inputText: "123"
+- tapOn: "Review Order"
 - assertVisible: "Checkout"
-- tapOn:
-    point: 207, 100
-- tapOn:
-    id: "More-tab-item"
-- tapOn:
-    point: 207, 200
-- tapOn:
-    point: 207, 400
+- tapOn: "More-tab-item"
+- tapOn: "ResetAppState-menu-item"
 - assertVisible: "App State has been reset."

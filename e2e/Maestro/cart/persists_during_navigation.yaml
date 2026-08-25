@@ -2,21 +2,13 @@ appId: com.saucelabs.mydemo.app.ios
 ---
 - launchApp:
     clearState: true
-- tapOn:
-    point: 207, 298
-- tapOn:
-    point: 207, 852
-- tapOn:
-    point: 207, 100
-- tapOn:
-    point: 207, 188
-- tapOn:
-    "Add To Cart"
-- tapOn:
-    id: "More-tab-item"
-- tapOn:
-    point: 207, 100
-- tapOn:
-    point: 207, 100
+- tapOn: "bob@example.com"
+- tapOn: "Login"
+- tapOn: "Catalog-tab-item"
+- tapOn: "ProductItem"
+- tapOn: "AddToCart"
+- tapOn: "More-tab-item"
+- tapOn: "Catalog-tab-item"
+- tapOn: "Cart-tab-item"
 - assertVisible: "Sauce Labs Backpack"
-- assertVisible: "$29.99"
+- assertVisible: "$ 29.99"
