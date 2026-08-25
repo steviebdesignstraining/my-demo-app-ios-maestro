@@ -1,7 +1,7 @@
 appId: com.saucelabs.mydemo.app.ios
 ---
-- launchApp:
-    clearState: true
-- tapOn: "bob@example.com"
-- tapOn: "Login"
-- assertVisible: "Catalog"
+- runFlow: "../pages/login.yaml"
+  name: loginWithCredentials
+  params:
+    email: "bob@example.com"
+    password: "10203040"

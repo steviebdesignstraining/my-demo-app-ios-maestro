@@ -1,11 +1,7 @@
 appId: com.saucelabs.mydemo.app.ios
 ---
-- launchApp:
-    clearState: true
-- tapOn: "bob@example.com"
-- tapOn:
-    below: "Usernames"
-- eraseText
-- inputText: "wronguser"
-- tapOn: "Login"
-- assertVisible: "Catalog"
+- runFlow: "../pages/login.yaml"
+  name: loginWithInvalidEmail
+  params:
+    email: "wronguser"
+    password: "10203040"

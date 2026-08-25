@@ -1,6 +1,4 @@
 appId: com.saucelabs.mydemo.app.ios
 ---
-- launchApp:
-    clearState: true
-- tapOn: "Login"
-- assertVisible: "Validation Error!"
+- runFlow: "../pages/login.yaml"
+  name: loginWithEmptyFields
