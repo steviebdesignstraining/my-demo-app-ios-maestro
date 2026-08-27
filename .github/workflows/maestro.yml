@@ -102,13 +102,13 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          find "$MAESTRO_DIR" -type f \( -name '*.yaml' -o -name '*.yml' \) ! -name 'config.yaml' ! -path '*/pages/*' | sort > maestro-flows.txt
+          find "$MAESTRO_DIR/flows" -type f \( -name '*.yaml' -o -name '*.yml' \) | sort > maestro-flows.txt
           FLOW_COUNT=$(wc -l < maestro-flows.txt | tr -d ' ')
           if [ "$FLOW_COUNT" -eq 0 ]; then
-            echo "ERROR: no flow files found under $MAESTRO_DIR"
+            echo "ERROR: no flow files found under $MAESTRO_DIR/flows"
             exit 1
           fi
-          echo "Found $FLOW_COUNT flow file(s) under $MAESTRO_DIR:"
+          echo "Found $FLOW_COUNT flow file(s) under $MAESTRO_DIR/flows:"
           cat maestro-flows.txt
 
       - name: Build debug app for iOS Simulator
