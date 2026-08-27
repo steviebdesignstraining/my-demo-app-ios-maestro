@@ -1,0 +1,71 @@
+appId: com.saucelabs.mydemo.app.ios
+tags:
+  - checkout
+  - positive
+---
+- runFlow:
+    file: ../common/login.yaml
+    env:
+      EMAIL: ${EMAIL || "bob@example.com"}
+      PASSWORD: ${PASSWORD || "10203040"}
+
+- runFlow:
+    file: ../common/addProduct.yaml
+    env:
+      PRODUCT_NAME: ${output.testData.products.backpackRed.name}
+      PRODUCT_DETAIL: ${output.testData.products.backpackRed.detail}
+      ADDITIONAL_QUANTITY: 0
+
+- tapOn:
+    id: ${output.navigation.catalogTab}
+
+- runFlow:
+    file: ../common/addProduct.yaml
+    env:
+      PRODUCT_NAME: ${output.testData.products.boltBlack.name}
+      PRODUCT_DETAIL: ${output.testData.products.boltBlack.detail}
+      ADDITIONAL_QUANTITY: 2
+
+- runFlow: ../common/goToCart.yaml
+- assertVisible: "$${output.testData.expected.checkoutSubtotal}"
+- tapOn: ${output.cart.proceedToCheckout}
+
+# Fill checkout details. The app currently exposes the fields as their existing values.
+- tapOn: "Rebecca Winter"
+- eraseText
+- inputText: ${SHIPPING_NAME || "Stephen Brown"}
+- tapOn: "Mandorley 112"
+- eraseText
+- inputText: ${SHIPPING_ADDRESS || "Flat 40 Williams Court"}
+- tapOn: "Truro"
+- eraseText
+- inputText: ${SHIPPING_CITY || "London"}
+- tapOn: "89750"
+- eraseText
+- inputText: ${SHIPPING_ZIP || "CR0 5JJ"}
+- tapOn: "United Kingdom"
+- eraseText
+- inputText: ${SHIPPING_COUNTRY || "United Kingdom"}
+- tapOn: ${output.checkout.toPayment}
+
+- assertVisible: ${output.checkout.title}
+- tapOn: "Maxim Winter"
+- eraseText
+- inputText: ${CARD_NAME || "Stephen Brown"}
+- tapOn: "3258 1265 7568 7896"
+- eraseText
+- inputText: ${CARD_NUMBER || "1234 5678 9876 5432"}
+- tapOn: "03/25"
+- eraseText
+- inputText: ${CARD_EXPIRY || "0327"}
+- tapOn: "123"
+- eraseText
+- inputText: ${SECURITY_CODE || "123"}
+- tapOn: ${output.checkout.reviewOrder}
+
+- assertVisible: "$${output.testData.expected.checkoutTotal}"
+- assertVisible: "4"
+- assertVisible: ${output.testData.products.backpackRed.detail}
+- assertVisible: ${output.testData.products.boltBlack.detail}
+- tapOn: ${output.checkout.placeOrder}
+- assertVisible: ${output.checkout.complete}

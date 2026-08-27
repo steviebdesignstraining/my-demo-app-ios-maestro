@@ -1,0 +1,8 @@
+appId: ${APP_ID || "com.saucelabs.mydemo.app.ios"}
+---
+# Common setup: load POM + data, then launch a clean app.
+- runFlow: ../../pages/load.yaml
+- runScript: ../../data/testData.js
+- launchApp:
+    appId: ${APP_ID || "com.saucelabs.mydemo.app.ios"}
+    clearState: true

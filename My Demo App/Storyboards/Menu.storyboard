@@ -77,6 +77,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="64" height="40"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                         <nil key="textColor"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Webview-label"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i25-ke-kEh">
                                                         <rect key="frame" x="362" y="11" width="20" height="18"/>
@@ -85,6 +86,7 @@
                                                             <constraint firstAttribute="width" constant="20" id="OKn-Lr-ypa"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="ForwordArrow Icons"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Webview-arrow-button"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wJg-4t-VJF">
                                                         <rect key="frame" x="0.0" y="39" width="382" height="1"/>
@@ -125,6 +127,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="126.5" height="40"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                         <nil key="textColor"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="QrCodeScanner-label"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8DX-Xk-sDL">
                                                         <rect key="frame" x="362" y="11" width="20" height="18"/>
@@ -133,6 +136,7 @@
                                                             <constraint firstAttribute="width" constant="20" id="6E0-wa-smY"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="ForwordArrow Icons"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="QrCodeScanner-arrow-button"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L3q-fn-Xqr">
                                                         <rect key="frame" x="0.0" y="39" width="382" height="1"/>
@@ -173,6 +177,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="93.5" height="40"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                         <nil key="textColor"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="GeoLocation-label"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Awu-0i-Qjc">
                                                         <rect key="frame" x="362" y="11" width="20" height="18"/>
@@ -181,6 +186,7 @@
                                                             <constraint firstAttribute="height" constant="18" id="GgG-qe-cAX"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="ForwordArrow Icons"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="GeoLocation-arrow-button"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gwr-Iu-LBW">
                                                         <rect key="frame" x="0.0" y="39" width="382" height="1"/>
@@ -221,6 +227,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="58.5" height="40"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                         <nil key="textColor"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Drawing-label"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lki-CL-2eC">
                                                         <rect key="frame" x="362" y="11" width="20" height="18"/>
@@ -229,6 +236,7 @@
                                                             <constraint firstAttribute="height" constant="18" id="JdY-eh-HaC"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="ForwordArrow Icons"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Drawing-arrow-button"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y2Y-pd-sUb">
                                                         <rect key="frame" x="0.0" y="39" width="382" height="1"/>
@@ -269,6 +277,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="91.5" height="40"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                         <nil key="textColor"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="ReportABug-label"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVT-0z-llq">
                                                         <rect key="frame" x="362" y="11" width="20" height="18"/>
@@ -277,6 +286,7 @@
                                                             <constraint firstAttribute="height" constant="18" id="QJL-d3-MfN"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="ForwordArrow Icons"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="ReportABug-arrow-button"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p5n-CG-Tab">
                                                         <rect key="frame" x="0.0" y="39" width="382" height="1"/>
@@ -316,6 +326,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="149" height="40"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                         <nil key="textColor"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="ReportABugDebug-label"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hsy-8N-ef9">
                                                         <rect key="frame" x="362" y="11" width="20" height="18"/>
@@ -324,6 +335,7 @@
                                                             <constraint firstAttribute="width" constant="20" id="aFP-XD-5cc"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="ForwordArrow Icons"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="ReportABugDebug-arrow-button"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e1Q-Nk-rwB">
                                                         <rect key="frame" x="0.0" y="39" width="382" height="1"/>
@@ -363,6 +375,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="126" height="40"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                         <nil key="textColor"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="PushNotifications-label"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nP-Qn-SxL">
                                                         <rect key="frame" x="362" y="11" width="20" height="18"/>
@@ -371,6 +384,7 @@
                                                             <constraint firstAttribute="width" constant="20" id="pAI-SD-mGi"/>
                                                         </constraints>
                                                         <state key="normal" title="Button" image="ForwordArrow Icons"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="PushNotifications-arrow-button"/>
                                                     </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JHM-Xv-u6s">
                                                         <rect key="frame" x="0.0" y="39" width="382" height="1"/>
@@ -410,6 +424,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="42.5" height="40"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                         <nil key="textColor"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="About-label"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AZP-eP-eAU">
                                                         <rect key="frame" x="0.0" y="39" width="382" height="1"/>
@@ -448,6 +463,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="100.5" height="40"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                         <nil key="textColor"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="CrashTheApp-label"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Mye-9u-92e">
                                                         <rect key="frame" x="0.0" y="39" width="382" height="1"/>
@@ -486,6 +502,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="113" height="40"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                         <nil key="textColor"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="ResetAppState-label"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MNe-Ri-Iuf">
                                                         <rect key="frame" x="0.0" y="39" width="382" height="1"/>
@@ -524,6 +541,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="49.5" height="40"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                         <nil key="textColor"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Biometrics-label"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Ps-zH-eOU">
                                                         <rect key="frame" x="0.0" y="39" width="382" height="1"/>
@@ -562,6 +580,7 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="56" height="40"/>
                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                         <nil key="textColor"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="LogOut-label"/>
                                                     </label>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="O6z-go-tvm">
                                                         <rect key="frame" x="0.0" y="39" width="382" height="1"/>
@@ -820,6 +839,7 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JSc-40-3gq">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="QrCodeScanner-back-button"/>
                                                         <connections>
                                                             <action selector="backButton:" destination="YUh-FJ-LG5" eventType="touchUpInside" id="tpj-OH-n0B"/>
                                                         </connections>
@@ -839,6 +859,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVD-RJ-LOL">
                                                 <rect key="frame" x="50" y="22" width="37" height="16"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="QrCodeScanner-title"/>
                                                 <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -858,6 +879,7 @@
                                         <rect key="frame" x="16" y="92" width="190.5" height="24"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
                                         <nil key="textColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="QrCodeScanner-title"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zT7-yy-1YZ">
                                         <rect key="frame" x="16" y="148" width="382" height="28"/>
@@ -865,6 +887,7 @@
 It will be opened in your default browser.</string>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                                         <nil key="textColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="QrCodeScanner-description"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wWv-JB-7Z4" customClass="ViewShadowTop" customModule="My_Demo_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="754" width="414" height="15"/>
@@ -1101,6 +1124,7 @@ It will be opened in your default browser.</string>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g34-ip-lRg">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Webview-back-button"/>
                                                         <connections>
                                                             <action selector="backButton:" destination="z5c-Cx-WQ1" eventType="touchUpInside" id="zii-vQ-VEt"/>
                                                         </connections>
@@ -1120,6 +1144,7 @@ It will be opened in your default browser.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9g-RH-yGS">
                                                 <rect key="frame" x="50" y="22" width="37" height="16"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Webview-title"/>
                                                 <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1138,11 +1163,13 @@ It will be opened in your default browser.</string>
                                         <rect key="frame" x="16" y="84" width="97" height="24"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
                                         <nil key="textColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Webview-title"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="URL" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLd-E6-hNo">
                                         <rect key="frame" x="16" y="140" width="29.5" height="16"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
                                         <nil key="textColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Webview-URL-label"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zFa-0i-9tD">
                                         <rect key="frame" x="16" y="164" width="382" height="45"/>
@@ -1166,6 +1193,7 @@ It will be opened in your default browser.</string>
                                                         <color key="value" red="0.42745098040000001" green="0.45882352939999999" blue="0.51764705879999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
+                                                <accessibility key="accessibilityConfiguration" identifier="Webview-URL-textField"/>
                                             </textField>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1359,6 +1387,7 @@ It will be opened in your default browser.</string>
                                                 <state key="normal" title="Go To Site" backgroundImage="GreenButton Icons">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <accessibility key="accessibilityConfiguration" identifier="Webview-goToSite-button"/>
                                                 <connections>
                                                     <action selector="goToSiteButton:" destination="z5c-Cx-WQ1" eventType="touchUpInside" id="HhA-b3-7R6"/>
                                                 </connections>
@@ -1451,6 +1480,7 @@ It will be opened in your default browser.</string>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gXI-wu-4AA">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="GeoLocation-back-button"/>
                                                         <connections>
                                                             <action selector="backButton:" destination="vwH-kQ-wo4" eventType="touchUpInside" id="571-Qz-ppJ"/>
                                                         </connections>
@@ -1470,6 +1500,7 @@ It will be opened in your default browser.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ARU-1I-6Xu">
                                                 <rect key="frame" x="50" y="22" width="37" height="16"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="GeoLocation-title"/>
                                                 <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1488,31 +1519,37 @@ It will be opened in your default browser.</string>
                                         <rect key="frame" x="16" y="84" width="141" height="24"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
                                         <nil key="textColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="GeoLocation-title"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Below you will find the latitude and longitute." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pqC-an-Ulo">
                                         <rect key="frame" x="16" y="140" width="382" height="14"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                                         <nil key="textColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="GeoLocation-description"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can use Appium to change them with" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S4l-f8-2oB">
                                         <rect key="frame" x="16" y="159" width="254" height="14"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                                         <nil key="textColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="GeoLocation-hint"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KBZ-nJ-5Dl">
                                         <rect key="frame" x="60" y="273" width="106.5" height="24"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
                                         <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="GeoLocation-longitude-label"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13.45143" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="te8-Go-HFR">
                                         <rect key="frame" x="60" y="321" width="92" height="24"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
                                         <color key="textColor" red="0.42745098040000001" green="0.45882352939999999" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="GeoLocation-longitude-value"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LTO-6H-JbP">
                                         <rect key="frame" x="206.5" y="273" width="86" height="24"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
                                         <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="GeoLocation-latitude-label"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YE3-jf-cJb" customClass="ViewShadowTop" customModule="My_Demo_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="754" width="414" height="15"/>
@@ -1677,6 +1714,7 @@ It will be opened in your default browser.</string>
                                         <rect key="frame" x="212" y="321" width="106" height="24"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
                                         <color key="textColor" red="0.42745098040000001" green="0.45882352939999999" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="GeoLocation-latitude-value"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Jf-xq-OyH">
                                         <rect key="frame" x="273" y="152" width="54" height="28.5"/>
@@ -1691,6 +1729,7 @@ It will be opened in your default browser.</string>
                                                 </fragment>
                                             </attributedString>
                                         </state>
+                                        <accessibility key="accessibilityConfiguration" identifier="GeoLocation-appium-link"/>
                                         <connections>
                                             <action selector="appiumButton:" destination="vwH-kQ-wo4" eventType="touchUpInside" id="tVn-6q-sIU"/>
                                         </connections>
@@ -1699,6 +1738,7 @@ It will be opened in your default browser.</string>
                                         <rect key="frame" x="16" y="203" width="382" height="14"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                                         <nil key="textColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="GeoLocation-android-hint"/>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1782,6 +1822,7 @@ It will be opened in your default browser.</string>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m6a-qq-FdZ">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Drawing-back-button"/>
                                                         <connections>
                                                             <action selector="backButton:" destination="VUP-Es-prx" eventType="touchUpInside" id="6Yr-De-iwW"/>
                                                         </connections>
@@ -1801,6 +1842,7 @@ It will be opened in your default browser.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="erx-Oz-ofX">
                                                 <rect key="frame" x="50" y="22" width="37" height="16"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Drawing-title"/>
                                                 <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1820,6 +1862,7 @@ It will be opened in your default browser.</string>
                                         <rect key="frame" x="16" y="84" width="88.5" height="24"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
                                         <nil key="textColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Drawing-title"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pug-fh-XAa" customClass="ViewShadowTop" customModule="My_Demo_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="754" width="414" height="15"/>
@@ -2023,6 +2066,7 @@ It will be opened in your default browser.</string>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" image="SaveButton Icons"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Drawing-save-button"/>
                                         <connections>
                                             <action selector="saveButton:" destination="VUP-Es-prx" eventType="touchUpInside" id="WXL-0Z-mK3"/>
                                         </connections>
@@ -2035,6 +2079,7 @@ It will be opened in your default browser.</string>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                         <state key="normal" image="ClearButton Icons"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="Drawing-clear-button"/>
                                         <connections>
                                             <action selector="clearButton:" destination="VUP-Es-prx" eventType="touchUpInside" id="tck-Ux-Uji"/>
                                         </connections>
@@ -2108,6 +2153,7 @@ It will be opened in your default browser.</string>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0I-Vx-Nfc">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="About-back-button"/>
                                                         <connections>
                                                             <action selector="backButton:" destination="S8k-Me-vCc" eventType="touchUpInside" id="GFM-MQ-RLO"/>
                                                         </connections>
@@ -2127,6 +2173,7 @@ It will be opened in your default browser.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ihS-Wd-mub">
                                                 <rect key="frame" x="50" y="22" width="37" height="16"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="About-title"/>
                                                 <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2304,6 +2351,7 @@ It will be opened in your default browser.</string>
                                         <rect key="frame" x="180" y="332" width="70.5" height="24"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
                                         <nil key="textColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="About-title"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZFo-73-nk6">
                                         <rect key="frame" x="141" y="455" width="148" height="28"/>
@@ -2311,6 +2359,7 @@ It will be opened in your default browser.</string>
                                         <state key="normal" title="Go to saucelabs.com">
                                             <color key="titleColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <accessibility key="accessibilityConfiguration" identifier="About-sauceLabs-button"/>
                                         <connections>
                                             <action selector="sauceLabsButton:" destination="S8k-Me-vCc" eventType="touchUpInside" id="QrV-pW-dDN"/>
                                         </connections>
@@ -2403,6 +2452,7 @@ It will be opened in your default browser.</string>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E1q-Ts-3Go">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="FaceId-back-button"/>
                                                         <connections>
                                                             <action selector="backButton:" destination="FKo-et-tGB" eventType="touchUpInside" id="OXf-5y-Vgd"/>
                                                         </connections>
@@ -2422,6 +2472,7 @@ It will be opened in your default browser.</string>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Yu-xe-jjJ">
                                                 <rect key="frame" x="50" y="22" width="37" height="16"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="FaceId-title"/>
                                                 <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -2440,6 +2491,7 @@ It will be opened in your default browser.</string>
                                         <rect key="frame" x="16" y="84" width="80.5" height="24"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
                                         <nil key="textColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="FaceId-title"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uoh-Bc-6qe">
                                         <rect key="frame" x="16" y="144" width="382" height="24"/>
@@ -2448,6 +2500,7 @@ It will be opened in your default browser.</string>
                                                 <rect key="frame" x="0.0" y="4" width="169.5" height="16"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
                                                 <nil key="textColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="FaceId-allow-label"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z1S-gL-jen">
                                                 <rect key="frame" x="346" y="2" width="36" height="20"/>
@@ -2457,10 +2510,12 @@ It will be opened in your default browser.</string>
                                                 </constraints>
                                                 <state key="normal" image="SwitchUnselected Icons"/>
                                                 <state key="selected" image="SwitchSelected Icons"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="FaceId-switch-button"/>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ayz-JU-Q74">
                                                 <rect key="frame" x="0.0" y="0.0" width="382" height="24"/>
                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="FaceId-allow-button"/>
                                                 <connections>
                                                     <action selector="allowLoginFaceButton:" destination="FKo-et-tGB" eventType="touchUpInside" id="qG1-ie-yRo"/>
                                                 </connections>
@@ -2483,6 +2538,7 @@ It will be opened in your default browser.</string>
                                         <rect key="frame" x="16" y="187" width="218.5" height="14"/>
                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                                         <nil key="textColor"/>
+                                        <accessibility key="accessibilityConfiguration" identifier="FaceId-description"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FpK-fY-ubp" customClass="ViewShadowTop" customModule="My_Demo_App" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="754" width="414" height="15"/>
@@ -2714,6 +2770,7 @@ It will be opened in your default browser.</string>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KUC-SX-9gA">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="WebViewHandler-back-button"/>
                                                         <connections>
                                                             <action selector="backButton:" destination="A9x-LU-0LF" eventType="touchUpInside" id="eWg-gn-fyZ"/>
                                                         </connections>
@@ -2841,6 +2898,7 @@ It will be opened in your default browser.</string>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFc-Lx-5qd">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="ReportABugDebug-back-button"/>
                                                         <connections>
                                                             <action selector="backButton:" destination="uOA-pA-dGO" eventType="touchUpInside" id="1rB-iP-rL0"/>
                                                         </connections>
@@ -2862,6 +2920,7 @@ It will be opened in your default browser.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="ReportABugDebug-title"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2931,6 +2990,7 @@ It will be opened in your default browser.</string>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yql-1I-2Ij">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="PushNotifications-back-button"/>
                                                         <connections>
                                                             <action selector="backButton:" destination="0kB-pd-9md" eventType="touchUpInside" id="KwD-9t-nC0"/>
                                                         </connections>
@@ -2952,6 +3012,7 @@ It will be opened in your default browser.</string>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="PushNotifications-title"/>
                                             </label>
                                         </subviews>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>

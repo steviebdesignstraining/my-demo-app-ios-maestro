@@ -1,0 +1,10 @@
+appId: com.saucelabs.mydemo.app.ios
+tags:
+  - login
+  - negative
+  - edge
+---
+- runFlow: ../common/openLogin.yaml
+- tapOn:
+    id: ${output.login.loginButton}
+- assertVisible: ${output.login.usernameRequired}

@@ -43,6 +43,7 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pj5-9Y-ok6">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Back-button"/>
                                                         <connections>
                                                             <action selector="backButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="les-xj-2js"/>
                                                         </connections>
@@ -60,6 +61,7 @@
                                                 </constraints>
                                             </view>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ix6-AN-KJ7">
+                                                <accessibility key="accessibilityConfiguration" identifier="MyCart-label"/>
                                                 <rect key="frame" x="50" y="22" width="55" height="16"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
                                                 <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
@@ -88,14 +90,17 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Xk-4V-aM2">
                                                                 <rect key="frame" x="16" y="37" width="58.5" height="24"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="Login"/>
                                                                 <nil key="textColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select a username from the list below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BKC-Rr-FEr">
+                                                                <accessibility key="accessibilityConfiguration" identifier="SelectUsername-label"/>
                                                                 <rect key="frame" x="16" y="93" width="382" height="16"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
                                                                 <nil key="textColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="User Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fuk-dO-CKv">
+                                                                <accessibility key="accessibilityConfiguration" identifier="UserName-label"/>
                                                                 <rect key="frame" x="16" y="141" width="79.5" height="16"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
                                                                 <nil key="textColor"/>
@@ -107,6 +112,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="45"/>
                                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
                                                                         <textInputTraits key="textInputTraits"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="usernameTextField"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -142,6 +148,7 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wH0-gj-3UT">
+                                                                <accessibility key="accessibilityConfiguration" identifier="Password-label"/>
                                                                 <rect key="frame" x="16" y="242" width="68.5" height="16"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
                                                                 <nil key="textColor"/>
@@ -153,6 +160,7 @@
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="45"/>
                                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="8"/>
                                                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="passwordTextField"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
                                                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
@@ -188,21 +196,25 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Usernames" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a5O-tE-dwf">
+                                                                <accessibility key="accessibilityConfiguration" identifier="Usernames-label"/>
                                                                 <rect key="frame" x="47" y="364" width="90.5" height="18"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QPQ-J6-U8Y">
+                                                                <accessibility key="accessibilityConfiguration" identifier="PasswordHint-label"/>
                                                                 <rect key="frame" x="265" y="364" width="77" height="18"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="18"/>
                                                                 <nil key="textColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10203040" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="px5-uD-jmK">
+                                                                <accessibility key="accessibilityConfiguration" identifier="PasswordHintValue-label"/>
                                                                 <rect key="frame" x="264" y="405.5" width="63" height="14"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
                                                                 <color key="textColor" red="0.42745098039215684" green="0.45882352941176469" blue="0.51764705882352935" alpha="1" colorSpace="calibratedRGB"/>
                                                             </label>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g5G-MW-14h">
+                                                                <accessibility key="accessibilityConfiguration" identifier="EmailBob-button"/>
                                                                 <rect key="frame" x="50" y="398" width="124" height="28.5"/>
                                                                 <state key="normal">
                                                                     <attributedString key="attributedTitle">
@@ -220,6 +232,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wHO-iw-AWj">
+                                                                <accessibility key="accessibilityConfiguration" identifier="EmailAlice-button"/>
                                                                 <rect key="frame" x="50" y="434.5" width="129" height="28.5"/>
                                                                 <state key="normal">
                                                                     <attributedString key="attributedTitle">
@@ -238,6 +251,7 @@
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RIw-Dv-Bht">
+                                                                <accessibility key="accessibilityConfiguration" identifier="EmailJohn-button"/>
                                                                 <rect key="frame" x="50" y="471" width="126" height="28.5"/>
                                                                 <state key="normal">
                                                                     <attributedString key="attributedTitle">
@@ -341,6 +355,7 @@
                                         <rect key="frame" x="0.0" y="672" width="414" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fso-Rl-o8c" customClass="ButtonRoundCorner" customModule="My_Demo_App" customModuleProvider="target">
+                                                <accessibility key="accessibilityConfiguration" identifier="Login-button"/>
                                                 <rect key="frame" x="16" y="16" width="382" height="48"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="18"/>
@@ -370,6 +385,7 @@
                                         <rect key="frame" x="0.0" y="672" width="414" height="80"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P59-gr-kCa" customClass="ButtonRoundCorner" customModule="My_Demo_App" customModuleProvider="target">
+                                                <accessibility key="accessibilityConfiguration" identifier="LoginWithPassword-button"/>
                                                 <rect key="frame" x="100" y="16" width="298" height="48"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="18"/>
@@ -381,6 +397,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Fg-0r-jDl" customClass="ButtonRoundCorner" customModule="My_Demo_App" customModuleProvider="target">
+                                                <accessibility key="accessibilityConfiguration" identifier="FaceIdLogin-button"/>
                                                 <rect key="frame" x="16" y="16" width="68" height="48"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" image="FaceId Icons" backgroundImage="GreenButton Icons">

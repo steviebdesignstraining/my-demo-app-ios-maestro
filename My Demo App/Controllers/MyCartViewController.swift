@@ -131,6 +131,7 @@ extension MyCartViewController: UITableViewDelegate, UITableViewDataSource {
         cell.productCountLbl.text = "\(productQuantity ?? 0)"
         
         cell.removeButton.tag = indexPath.row
+        cell.removeButton.accessibilityIdentifier = "removeItem_\(indexPath.row)"
         cell.removeButton.addTarget(self, action: #selector(deleteProduct(_:)), for: .touchUpInside)
         
         cell.addButton.tag = indexPath.row

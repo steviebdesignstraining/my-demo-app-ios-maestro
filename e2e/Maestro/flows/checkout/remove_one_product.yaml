@@ -1,0 +1,52 @@
+appId: com.saucelabs.mydemo.app.ios
+tags:
+  - cart
+  - checkout
+  - positive
+---
+- runFlow:
+    file: ../common/login.yaml
+    env:
+      EMAIL: ${EMAIL || "bob@example.com"}
+      PASSWORD: ${PASSWORD || "10203040"}
+
+- runFlow:
+    file: ../common/addProduct.yaml
+    env:
+      PRODUCT_NAME: ${output.testData.products.backpackRed.name}
+      PRODUCT_DETAIL: ${output.testData.products.backpackRed.detail}
+      ADDITIONAL_QUANTITY: 0
+
+- tapOn:
+    id: ${output.navigation.catalogTab}
+
+- runFlow:
+    file: ../common/addProduct.yaml
+    env:
+      PRODUCT_NAME: ${output.testData.products.boltBlack.name}
+      PRODUCT_DETAIL: ${output.testData.products.boltBlack.detail}
+      ADDITIONAL_QUANTITY: 0
+
+- tapOn:
+    id: ${output.navigation.catalogTab}
+
+- runFlow:
+    file: ../common/addProduct.yaml
+    env:
+      PRODUCT_NAME: ${output.testData.products.backpackOrange.name}
+      PRODUCT_DETAIL: ${output.testData.products.backpackOrange.detail}
+      ADDITIONAL_QUANTITY: 2
+
+- runFlow: ../common/goToCart.yaml
+- assertVisible: ${output.testData.products.backpackRed.detail}
+- assertVisible: ${output.testData.products.boltBlack.detail}
+- assertVisible: ${output.testData.products.backpackOrange.detail}
+- assertVisible: "$${output.testData.expected.removeOneTotal}"
+- assertVisible: "5 Items"
+
+- tapOn: ${output.cart.removeItem}
+- assertNotVisible: ${output.testData.products.backpackRed.detail}
+- assertVisible: ${output.testData.products.boltBlack.detail}
+- assertVisible: ${output.testData.products.backpackOrange.detail}
+- assertVisible: "$${output.testData.expected.removeOneAfterTotal}"
+- assertVisible: "4 Items"

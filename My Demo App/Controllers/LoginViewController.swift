@@ -40,6 +40,14 @@ class LoginViewController: UIViewController {
         }else{
             faceLoginContView.isHidden = true
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -55,27 +63,54 @@ class LoginViewController: UIViewController {
         passwordTF.text = "10203040"
     }
     
+    // Valid usernames and password
+    private let validUsernames = ["bob@example.com", "alice@example.com", "john@example.com", "visual@example.com"]
+    private let validPassword = "10203040"
+
     @IBAction func LoginButton(_ sender: Any) {
-        if(!userNameTF.hasText){
+        // Validate username is not empty
+        guard let username = userNameTF.text, !username.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Username is required")
+            return
         }
-        else if (!passwordTF.hasText) {
+
+        // Validate password is not empty
+        guard let password = passwordTF.text, !password.isEmpty else {
             Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Password is required")
+            return
         }
-        else {
-            if isFromProcessCheckout{
-                let storyboard = UIStoryboard.init(name: "TabBar", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "ShippingAddressViewController") as! ShippingAddressViewController
-                self.navigationController?.pushViewController(vc, animated: true)
-                
-            }else{
-                let storyboard = UIStoryboard.init(name: "TabBar", bundle: nil)
-                let vc = storyboard.instantiateViewController(withIdentifier: "CatalogViewController") as! CatalogViewController
-                self.navigationController?.pushViewController(vc, animated: true)
-            }
-            Engine.sharedInstance.isLogin = true
-            Engine.sharedInstance.userName = userNameTF.text ?? ""
+
+        // Validate username format (must be a valid email)
+        guard Methods.isValidEmail(email: username) else {
+            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please enter a valid email address")
+            return
         }
+
+        // Validate username is in the allowed list
+        guard validUsernames.contains(username.lowercased()) else {
+            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Invalid username. Please use a valid account.")
+            return
+        }
+
+        // Validate password matches
+        guard password == validPassword else {
+            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Invalid password. Please enter the correct password.")
+            return
+        }
+
+        // All validations passed - proceed with login
+        if isFromProcessCheckout{
+            let storyboard = UIStoryboard.init(name: "TabBar", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "ShippingAddressViewController") as! ShippingAddressViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+
+        }else{
+            let storyboard = UIStoryboard.init(name: "TabBar", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "CatalogViewController") as! CatalogViewController
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+        Engine.sharedInstance.isLogin = true
+        Engine.sharedInstance.userName = username
         Engine.sharedInstance.productList.removeAll();
         Utils.setProductList();
     }

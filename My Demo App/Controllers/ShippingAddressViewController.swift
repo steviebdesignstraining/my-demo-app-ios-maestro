@@ -28,6 +28,14 @@ class ShippingAddressViewController: UIViewController {
         if Engine.sharedInstance.cartCount < 1 {
             cartCountContView.isHidden = true
         }
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -35,34 +43,49 @@ class ShippingAddressViewController: UIViewController {
     }
     
     @IBAction func toPaymentButton(_ sender: Any) {
-        
-        if(!fullNameTF.hasText){
+
+        // Validate full name
+        guard let fullName = fullNameTF.text, !fullName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide your full name.")
+            return
         }
-        else if(!address1TF.hasText){
+
+        // Validate address line 1
+        guard let address1 = address1TF.text, !address1.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide your address.")
+            return
         }
-        else if (!cityTF.hasText){
+
+        // Validate city
+        guard let city = cityTF.text, !city.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide your city.")
+            return
         }
-        else if (!zipCodeTF.hasText){
-            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide your zip.")
+
+        // Validate zip/postal code
+        guard let zipCode = zipCodeTF.text, !zipCode.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide your zip/postal code.")
+            return
         }
-        else if (!countryTF.hasText){
+
+        // Validate country
+        guard let country = countryTF.text, !country.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide your country.")
-        }else{
-            Engine.sharedInstance.fullName = fullNameTF.text ?? ""
-            Engine.sharedInstance.addressLine1 = address1TF.text ?? ""
-            Engine.sharedInstance.addressLine2 = address2TF.text ?? ""
-            Engine.sharedInstance.city = cityTF.text ?? ""
-            Engine.sharedInstance.stateRegion = stateRegionTF.text ?? ""
-            Engine.sharedInstance.zipCode = zipCodeTF.text ?? ""
-            Engine.sharedInstance.country = countryTF.text ?? ""
-            
-            let storyboard = UIStoryboard.init(name: "TabBar", bundle: nil)
-            let vc = storyboard.instantiateViewController(withIdentifier: "PaymentMethodViewController") as! PaymentMethodViewController
-            self.navigationController?.pushViewController(vc, animated: true)
+            return
         }
+
+        // All validations passed - save shipping address
+        Engine.sharedInstance.fullName = fullName.trimmingCharacters(in: .whitespacesAndNewlines)
+        Engine.sharedInstance.addressLine1 = address1.trimmingCharacters(in: .whitespacesAndNewlines)
+        Engine.sharedInstance.addressLine2 = (address2TF.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        Engine.sharedInstance.city = city.trimmingCharacters(in: .whitespacesAndNewlines)
+        Engine.sharedInstance.stateRegion = (stateRegionTF.text ?? "").trimmingCharacters(in: .whitespacesAndNewlines)
+        Engine.sharedInstance.zipCode = zipCode.trimmingCharacters(in: .whitespacesAndNewlines)
+        Engine.sharedInstance.country = country.trimmingCharacters(in: .whitespacesAndNewlines)
+
+        let storyboard = UIStoryboard.init(name: "TabBar", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "PaymentMethodViewController") as! PaymentMethodViewController
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func catalogButton(_ sender: Any) {

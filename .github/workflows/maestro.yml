@@ -35,7 +35,7 @@ env:
   # ensures newly added/subfoldered flows are picked up automatically.
   MAESTRO_DIR: "e2e/Maestro"
   MAESTRO_REPORT_PATH: "build/maestro-report.html"
-
+  MAESTRO_DRIVER_STARTUP_TIMEOUT: "120"
 jobs:
   # ============================================================
   # 1. Build .app + Run Maestro iOS Tests
@@ -162,15 +162,13 @@ jobs:
           rm -rf maestro-debug
           mkdir -p maestro-debug
 
-          # Forward any values from the checked-in e2e/Maestro/.env as --env
-          # flags for forward-compatibility with flows that start referencing
-          # ${VAR} placeholders. No-op today since no current flow uses them.
+          # Source environment variables from repo-root .env if present.
           ENV_ARGS=()
-          if [ -f "$MAESTRO_DIR/.env" ]; then
+          if [ -f ".env" ]; then
             while IFS='=' read -r key value; do
               [[ -z "$key" || "$key" == \#* ]] && continue
               ENV_ARGS+=(--env "$key=$value")
-            done < "$MAESTRO_DIR/.env"
+            done < ".env"
           fi
 
           # Read all discovered flow files from the recursive scan and pass

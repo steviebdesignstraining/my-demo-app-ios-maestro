@@ -1,0 +1,8 @@
+appId: ${APP_ID || "com.saucelabs.mydemo.app.ios"}
+---
+# Single POM loader. Every test gets the same selector vocabulary.
+- runScript: ../pages/login.js
+- runScript: ../pages/navigation.js
+- runScript: ../pages/catalog.js
+- runScript: ../pages/cart.js
+- runScript: ../pages/checkout.js

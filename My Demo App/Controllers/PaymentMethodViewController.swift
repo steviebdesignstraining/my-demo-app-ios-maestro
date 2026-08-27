@@ -60,6 +60,14 @@ class PaymentMethodViewController: UIViewController, UITextFieldDelegate,EasyTip
         }
         toolTipPreferences()
         formTextFieldValidation()
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.cancelsTouchesInView = false
+        view.addGestureRecognizer(tapGesture)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @IBAction func backButton(_ sender: Any) {
@@ -104,45 +112,91 @@ class PaymentMethodViewController: UIViewController, UITextFieldDelegate,EasyTip
     }
     
     @IBAction func reviewOrderButton(_ sender: Any) {
-        
-        if(!fullNameCardTF.hasText){
-            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Value looks invalid.")
+
+        // Validate card details
+        guard let fullNameCard = fullNameCardTF.text, !fullNameCard.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide the full name on the card.")
+            return
         }
-        if(!cardNumberTF.hasText){
-            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Value looks invalid.")
+
+        guard let cardNumber = cardNumberTF.text, !cardNumber.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide the card number.")
+            return
         }
-        if (!expirationDateTF.hasText){
-            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Value looks invalid.")
+
+        // Validate card number length (should be 19 characters including spaces: "1234 5678 1234 5678")
+        let cardNumberDigits = cardNumber.replacingOccurrences(of: " ", with: "")
+        guard cardNumberDigits.count == 16 else {
+            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide a valid 16-digit card number.")
+            return
         }
+
+        guard let expirationDate = expirationDateTF.text, !expirationDate.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide the expiration date.")
+            return
+        }
+
+        // Validate expiration date format (MM/YY)
+        let expirationRegex = "^(0[1-9]|1[0-2])/[0-9]{2}$"
+        let expirationTest = NSPredicate(format:"SELF MATCHES %@", expirationRegex)
+        guard expirationTest.evaluate(with: expirationDate) else {
+            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide a valid expiration date in MM/YY format.")
+            return
+        }
+
+        // Validate security code
+        guard let securityCode = securityCodeTF.text, !securityCode.isEmpty else {
+            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide the security code (CVV/CVC).")
+            return
+        }
+
+        guard securityCode.count == 3, securityCode.allSatisfy({ $0.isNumber }) else {
+            Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide a valid 3-digit security code.")
+            return
+        }
+
+        // Validate billing address if not same as shipping
         if billingAddresBtn.isSelected == false {
-            if(!fullNameTF.hasText){
+            guard let fullName = fullNameTF.text, !fullName.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
                 Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide your full name.")
+                return
             }
-            else if(!address1TF.hasText){
+
+            guard let address1 = address1TF.text, !address1.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
                 Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide your address.")
+                return
             }
-            else if (!cityTF.hasText){
+
+            guard let city = cityTF.text, !city.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
                 Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide your city.")
+                return
             }
-            else if (!zipCodeTF.hasText){
-                Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide your zip.")
+
+            guard let zipCode = zipCodeTF.text, !zipCode.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+                Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide your zip/postal code.")
+                return
             }
-            else if (!countryTF.hasText){
+
+            guard let country = countryTF.text, !country.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
                 Methods.showAlertMessage(vc: self, title: "Validation Error!", message: "Please provide your country.")
+                return
             }
+
+            // Save billing address
+            Engine.sharedInstance.fullNameBilling = fullName
+            Engine.sharedInstance.addressLine1Billing = address1
+            Engine.sharedInstance.addressLine2Billing = address2TF.text ?? ""
+            Engine.sharedInstance.cityBilling = city
+            Engine.sharedInstance.stateRegionBilling = stateRegionTF.text ?? ""
+            Engine.sharedInstance.zipCodeBilling = zipCode
+            Engine.sharedInstance.countryBilling = country
         }
-        Engine.sharedInstance.fullNameBilling = fullNameTF.text ?? ""
-        Engine.sharedInstance.addressLine1Billing = address1TF.text ?? ""
-        Engine.sharedInstance.addressLine2Billing = address2TF.text ?? ""
-        Engine.sharedInstance.cityBilling = cityTF.text ?? ""
-        Engine.sharedInstance.stateRegionBilling = stateRegionTF.text ?? ""
-        Engine.sharedInstance.zipCodeBilling = zipCodeTF.text ?? ""
-        Engine.sharedInstance.countryBilling = countryTF.text ?? ""
-        
-        Engine.sharedInstance.fullNameCard = fullNameCardTF.text ?? ""
-        Engine.sharedInstance.cardNumber = cardNumberTF.text ?? ""
-        Engine.sharedInstance.expirationDate = expirationDateTF.text ?? ""
-            
+
+        // Save card details
+        Engine.sharedInstance.fullNameCard = fullNameCard
+        Engine.sharedInstance.cardNumber = cardNumber
+        Engine.sharedInstance.expirationDate = expirationDate
+
         let storyboard = UIStoryboard.init(name: "TabBar", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "ReviewYourOrderViewController") as! ReviewYourOrderViewController
         vc.isBillingSame = isBillingSame
@@ -194,7 +248,8 @@ extension PaymentMethodViewController {
         expirationDateTF.inputType = .integer
         expirationDateTF.formatter = CardExpirationDateFormatter()
         validation = Validation()
-        validation.minimumLength = 1
+        validation.minimumLength = 5
+        validation.maximumLength = 5
         let inputValidatorExpiry = CardExpirationDateInputValidator(validation: validation)
         expirationDateTF.inputValidator = inputValidatorExpiry
         

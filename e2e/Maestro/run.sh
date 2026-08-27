@@ -2,45 +2,55 @@
 set -euo pipefail
 
 SIMULATOR_NAME="${SIMULATOR_NAME:-iPhone 16 Pro}"
-WORKSPACE="My Demo App.xcworkspace"
-SCHEME="My Demo App"
+IOS_VERSION="${IOS_VERSION:-18.6}"
+WORKSPACE="${WORKSPACE:-My Demo App.xcworkspace}"
+SCHEME="${SCHEME:-My Demo App}"
+APP_NAME="${APP_NAME:-My Demo App}"
+
 MAESTRO_DIR="$(cd "$(dirname "$0")" && pwd)"
+REPO_ROOT="$(cd "$MAESTRO_DIR/../.." && pwd)"
+cd "$REPO_ROOT"
 
-xcrun simctl boot "$SIMULATOR_NAME" || true
-xcrun simctl list devices booted | grep -q "$SIMULATOR_NAME" || { echo "Simulator $SIMULATOR_NAME is not booted"; exit 1; }
+BUILD_DIR="${BUILD_DIR:-build}"
+RESULTS_DIR="${RESULTS_DIR:-$BUILD_DIR/maestro-results}"
+DEBUG_DIR="${DEBUG_DIR:-$BUILD_DIR/maestro-debug}"
+APP_PATH="$BUILD_DIR/Build/Products/Debug-iphonesimulator/$APP_NAME.app"
 
-rm -rf build
-xcodebuild \
-  -workspace "$WORKSPACE" \
-  -scheme "$SCHEME" \
-  -configuration Debug \
-  -destination "platform=iOS Simulator,name=$SIMULATOR_NAME" \
-  -derivedDataPath build
+echo "==> Checking prerequisites"
+command -v xcodebuild >/dev/null || { echo "xcodebuild not found"; exit 1; }
+command -v xcrun >/dev/null || { echo "xcrun not found"; exit 1; }
+command -v maestro >/dev/null || { echo "maestro not found"; exit 1; }
 
-APP_PATH="$(find build -name "My Demo App.app" -type d | head -n 1)"
-[ -n "$APP_PATH" ] || { echo "Built app not found"; exit 1; }
+if [ -f "$REPO_ROOT/.env" ]; then
+  set -a
+  # shellcheck disable=SC1091
+  source "$REPO_ROOT/.env"
+  set +a
+fi
 
-xcrun simctl install booted "$APP_PATH"
+echo "==> Building $SCHEME for $SIMULATOR_NAME / iOS $IOS_VERSION"
+rm -rf "$BUILD_DIR"
+xcodebuild   -workspace "$WORKSPACE"   -scheme "$SCHEME"   -configuration Debug   -sdk iphonesimulator   -destination "platform=iOS Simulator,name=$SIMULATOR_NAME,OS=$IOS_VERSION"   -derivedDataPath "$BUILD_DIR"   build
 
-FLOW_FILES=()
-while IFS= read -r f; do
-  [ -n "$f" ] && FLOW_FILES+=("$f")
-done < <(find "$MAESTRO_DIR" -type f \( -name '*.yaml' -o -name '*.yml' \) ! -name 'config.yaml' ! -path '*/pages/*' | sort)
-
-if [ ${#FLOW_FILES[@]} -eq 0 ]; then
-  echo "ERROR: no flow files found under $MAESTRO_DIR"
+if [ ! -d "$APP_PATH" ]; then
+  echo "ERROR: Expected app bundle was not found:"
+  echo "       $APP_PATH"
+  echo "Built .app bundles:"
+  find "$BUILD_DIR" -name "*.app" -type d -print || true
   exit 1
 fi
 
-echo "Running ${#FLOW_FILES[@]} flow(s):"
-printf '  - %s\n' "${FLOW_FILES[@]}"
+echo "==> Booting simulator"
+xcrun simctl boot "$SIMULATOR_NAME" 2>/dev/null || true
+xcrun simctl bootstatus "$SIMULATOR_NAME" -b
 
-ENV_ARGS=()
-if [ -f "$MAESTRO_DIR/.env" ]; then
-  while IFS='=' read -r key value; do
-    [[ -z "$key" || "$key" == \#* ]] && continue
-    ENV_ARGS+=(--env "$key=$value")
-  done < "$MAESTRO_DIR/.env"
-fi
+echo "==> Installing app"
+xcrun simctl install booted "$APP_PATH"
 
-maestro test "${ENV_ARGS[@]}" "${FLOW_FILES[@]}"
+echo "==> Running Maestro suite"
+mkdir -p "$RESULTS_DIR"
+mkdir -p "$DEBUG_DIR"
+maestro test   --test-output-dir "$RESULTS_DIR"   --format html-detailed   --output "$BUILD_DIR/maestro-report.html"   --debug-output "$DEBUG_DIR"   "$MAESTRO_DIR"
+
+echo "==> Report: $BUILD_DIR/maestro-report.html"
+echo "==> Debug artifacts (screenshots/logs): $DEBUG_DIR"

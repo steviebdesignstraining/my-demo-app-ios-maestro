@@ -1,0 +1,14 @@
+appId: ${APP_ID || "com.saucelabs.mydemo.app.ios"}
+---
+# Login from checkout using the same credentials, without duplicating selectors.
+- tapOn:
+    id: ${output.checkout.username}
+- inputText: ${EMAIL || "bob@example.com"}
+- tapOn:
+    id: ${output.checkout.password}
+- inputText: ${PASSWORD || "10203040"}
+- tapOn:
+    id: ${output.login.loginTitle}
+- tapOn:
+    id: ${output.login.loginButton}
+- assertVisible: ${output.checkout.title}

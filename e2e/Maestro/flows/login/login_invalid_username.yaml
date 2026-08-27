@@ -1,0 +1,17 @@
+appId: com.saucelabs.mydemo.app.ios
+tags:
+  - login
+  - negative
+---
+- runFlow: ../common/openLogin.yaml
+- tapOn:
+    id: ${output.login.username}
+- inputText: ${INVALID_EMAIL || "incorrectexample.com"}
+- tapOn:
+    id: ${output.login.password}
+- inputText: ${PASSWORD || "10203040"}
+- tapOn:
+    id: ${output.login.loginTitle}
+- tapOn:
+    id: ${output.login.loginButton}
+- assertVisible: ${output.login.invalidEmail}

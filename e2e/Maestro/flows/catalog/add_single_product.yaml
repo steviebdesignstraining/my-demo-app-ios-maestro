@@ -1,0 +1,22 @@
+appId: com.saucelabs.mydemo.app.ios
+tags:
+  - catalog
+  - cart
+  - positive
+---
+- runFlow:
+    file: ../common/login.yaml
+    env:
+      EMAIL: ${EMAIL || "bob@example.com"}
+      PASSWORD: ${PASSWORD || "10203040"}
+
+- runFlow:
+    file: ../common/addProduct.yaml
+    env:
+      PRODUCT_NAME: ${output.testData.products.backpackRed.name}
+      PRODUCT_DETAIL: ${output.testData.products.backpackRed.detail}
+      ADDITIONAL_QUANTITY: 0
+
+- runFlow: ../common/goToCart.yaml
+- assertVisible: "$${output.testData.expected.singleTotal}"
+- assertVisible: "1 Items"

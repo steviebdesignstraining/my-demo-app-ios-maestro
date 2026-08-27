@@ -1,0 +1,18 @@
+appId: ${APP_ID || "com.saucelabs.mydemo.app.ios"}
+---
+# Required env:
+# PRODUCT_NAME, PRODUCT_DETAIL, PRODUCT_IMAGE_INDEX, ADDITIONAL_QUANTITY
+- scrollUntilVisible:
+    element:
+      text: ${PRODUCT_NAME}
+    direction: DOWN
+- tapOn: ${PRODUCT_NAME}
+- assertVisible: ${PRODUCT_DETAIL}
+- evalScript: ${output.quantity = Number(ADDITIONAL_QUANTITY || 0)}
+- repeat:
+    while:
+      true: ${output.quantity > 0}
+    commands:
+      - tapOn: ${output.catalog.addPlusIcon}
+      - evalScript: ${output.quantity--}
+- tapOn: ${output.catalog.addToCart}

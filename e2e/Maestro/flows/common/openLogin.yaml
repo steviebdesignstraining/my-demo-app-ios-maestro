@@ -1,0 +1,18 @@
+appId: ${APP_ID || "com.saucelabs.mydemo.app.ios"}
+---
+# Opens the login screen whether the app starts authenticated or not.
+- runFlow: start.yaml
+- runFlow:
+    when:
+      visible: ${output.catalog.productsScreen}
+    commands:
+      - tapOn:
+          id: ${output.navigation.cartTab}
+      - tapOn:
+          id: ${output.navigation.moreTab}
+      - tapOn:
+          id: ${output.navigation.logout}
+- assertVisible:
+    id: ${output.login.username}
+- assertVisible:
+    id: ${output.login.password}

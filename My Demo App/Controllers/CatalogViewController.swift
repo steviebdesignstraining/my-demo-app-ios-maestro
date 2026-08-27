@@ -184,6 +184,7 @@ extension CatalogViewController: UICollectionViewDataSource, UICollectionViewDel
         let productDataDic = Engine.sharedInstance.productList[indexPath.row]
         var imageName = productDataDic.value(forKey: "ProductImageName") as! String
         let productName = productDataDic.value(forKey: "ProductName") as! String
+        let productId = productDataDic.value(forKey: "Id") as! String
         
         let productPrice = if Engine.sharedInstance.userName == "visual@example.com" {
             String(format: "%.2f", Double.random(in: 1...99))
@@ -200,6 +201,12 @@ extension CatalogViewController: UICollectionViewDataSource, UICollectionViewDel
         cell.productNameLbl.text = productName
         cell.productNameLbl.accessibilityLabel = productName
         cell.productPriceLbl.text = "$ " + productPrice
+
+        // Set unique accessibility identifiers for each product
+        cell.accessibilityIdentifier = "ProductCell-\(productId)"
+        cell.productIV.accessibilityIdentifier = "ProductImage-\(productId)"
+        cell.productNameLbl.accessibilityIdentifier = "ProductName-\(productId)"
+        cell.productPriceLbl.accessibilityIdentifier = "ProductPrice-\(productId)"
 
         cell.star1Btn.tag = indexPath.row
         cell.star1Btn.addTarget(self, action: #selector(showAlert(sender:)), for: .touchUpInside)

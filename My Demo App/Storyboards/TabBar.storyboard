@@ -71,10 +71,12 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWY-lc-4dB">
                                                 <rect key="frame" x="159.5" y="70" width="95" height="24"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="NoItems-label"/>
                                                 <nil key="textColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CartEmpty Icons" translatesAutoresizingMaskIntoConstraints="NO" id="35h-jD-LXk">
                                                 <rect key="frame" x="155" y="126" width="104" height="104"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="CartEmpty-icon"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="104" id="9wv-IZ-d4T"/>
                                                     <constraint firstAttribute="height" constant="104" id="kY7-2q-knz"/>
@@ -83,6 +85,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh no! Your cart is empty. Fill it up with swag to complete your purchase." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRl-C3-Uwv">
                                                 <rect key="frame" x="16" y="262" width="382" height="32"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="EmptyCartMessage-label"/>
                                                 <nil key="textColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bM-iw-qUx">
@@ -136,6 +139,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qAV-ST-PqX">
                                                 <rect key="frame" x="16" y="24" width="82.5" height="24"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="MyCart"/>
                                                 <nil key="textColor"/>
                                             </label>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hre-jV-4KD">
@@ -212,6 +216,7 @@
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BagBlack Image" translatesAutoresizingMaskIntoConstraints="NO" id="lMJ-4d-gxF">
                                                                             <rect key="frame" x="0.0" y="0.0" width="164" height="164"/>
+                                                                            <accessibility key="accessibilityConfiguration" identifier="CartProductImage"/>
                                                                             <constraints>
                                                                                 <constraint firstAttribute="width" constant="164" id="60U-42-9Oo"/>
                                                                                 <constraint firstAttribute="width" secondItem="lMJ-4d-gxF" secondAttribute="height" multiplier="1:1" id="ahx-7y-bCV"/>
@@ -223,20 +228,24 @@
                                                                             <state key="normal" title="Remove Item">
                                                                                 <color key="titleColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                                             </state>
+                                                                            <accessibility key="accessibilityConfiguration" identifier="RemoveItem-button"/>
                                                                         </button>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sauce Labs Backpack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ahR-ap-k1g">
                                                                             <rect key="frame" x="180" y="0.0" width="202" height="16"/>
                                                                             <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
+                                                                            <accessibility key="accessibilityConfiguration" identifier="CartProductName-label"/>
                                                                             <nil key="textColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Color:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LZn-kl-zL0">
                                                                             <rect key="frame" x="180" y="74" width="37" height="14"/>
                                                                             <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="14"/>
+                                                                            <accessibility key="accessibilityConfiguration" identifier="Color-label"/>
                                                                             <nil key="textColor"/>
                                                                         </label>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$65.97" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pkH-d1-kBG">
                                                                             <rect key="frame" x="180" y="28" width="202" height="18"/>
                                                                             <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="18"/>
+                                                                            <accessibility key="accessibilityConfiguration" identifier="CartProductPrice-label"/>
                                                                             <nil key="textColor"/>
                                                                         </label>
                                                                         <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="a6H-mi-qne">
@@ -249,6 +258,7 @@
                                                                                     </constraints>
                                                                                     <state key="normal" image="StarUnSelected Icons"/>
                                                                                     <state key="selected" image="StarSelected Icons"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="Star1-button"/>
                                                                                 </button>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qsy-6e-zN9">
                                                                                     <rect key="frame" x="21" y="0.0" width="13" height="13"/>
@@ -257,6 +267,7 @@
                                                                                     </constraints>
                                                                                     <state key="normal" image="StarUnSelected Icons"/>
                                                                                     <state key="selected" image="StarSelected Icons"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="Star2-button"/>
                                                                                 </button>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yt4-Ee-Bsq">
                                                                                     <rect key="frame" x="42" y="0.0" width="13" height="13"/>
@@ -265,6 +276,7 @@
                                                                                     </constraints>
                                                                                     <state key="normal" image="StarUnSelected Icons"/>
                                                                                     <state key="selected" image="StarSelected Icons"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="Star3-button"/>
                                                                                 </button>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2TG-DI-SfZ">
                                                                                     <rect key="frame" x="63" y="0.0" width="13" height="13"/>
@@ -273,6 +285,7 @@
                                                                                     </constraints>
                                                                                     <state key="normal" image="StarUnSelected Icons"/>
                                                                                     <state key="selected" image="StarSelected Icons"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="Star4-button"/>
                                                                                 </button>
                                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvg-ZN-N48">
                                                                                     <rect key="frame" x="84" y="0.0" width="13" height="13"/>
@@ -281,6 +294,7 @@
                                                                                     </constraints>
                                                                                     <state key="normal" image="StarUnSelected Icons"/>
                                                                                     <state key="selected" image="StarSelected Icons"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="Star5-button"/>
                                                                                 </button>
                                                                             </subviews>
                                                                             <constraints>
@@ -301,6 +315,7 @@
                                                                                         <constraint firstAttribute="width" constant="40" id="m34-IH-tac"/>
                                                                                     </constraints>
                                                                                     <state key="normal" image="SubtractMinus Icons"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="Subtract-button"/>
                                                                                 </button>
                                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rzo-Ib-V4w">
                                                                                     <rect key="frame" x="40" y="0.0" width="40" height="40"/>
@@ -308,6 +323,7 @@
                                                                                         <constraint firstAttribute="width" constant="40" id="86i-qf-cR3"/>
                                                                                     </constraints>
                                                                                     <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="ProductCount-label"/>
                                                                                     <nil key="textColor"/>
                                                                                     <nil key="highlightedColor"/>
                                                                                 </label>
@@ -317,6 +333,7 @@
                                                                                         <constraint firstAttribute="width" constant="40" id="eua-Ro-PCQ"/>
                                                                                     </constraints>
                                                                                     <state key="normal" image="AddPlus Icons"/>
+                                                                                    <accessibility key="accessibilityConfiguration" identifier="Add-button"/>
                                                                                 </button>
                                                                             </subviews>
                                                                             <constraints>
@@ -414,16 +431,19 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Er0-TX-ZT9">
                                                 <rect key="frame" x="16" y="16" width="37.5" height="16"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Total-label"/>
                                                 <nil key="textColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkA-Ab-G5K">
                                                 <rect key="frame" x="55.5" y="17" width="45" height="14"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="14"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="TotalItems-label"/>
                                                 <nil key="textColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$65.97" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31C-Vm-RL9">
                                                 <rect key="frame" x="341" y="16" width="57" height="18"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="18"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="TotalPrice-label"/>
                                                 <nil key="textColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nNh-ic-cl1" customClass="ButtonRoundCorner" customModule="My_Demo_App" customModuleProvider="target">
@@ -699,6 +719,7 @@
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dFr-bd-ucd">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Back-button"/>
                                                         <connections>
                                                             <action selector="backButton:" destination="BLp-WG-JHm" eventType="touchUpInside" id="PzF-jB-os6"/>
                                                         </connections>
@@ -718,6 +739,7 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Products" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u25-Ga-wO2">
                                                 <rect key="frame" x="50" y="22" width="63" height="16"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Products"/>
                                                 <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -744,6 +766,7 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sauce Labs Backpack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kFc-el-fGo">
                                                                 <rect key="frame" x="16" y="24" width="231.5" height="24"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="ProductName-label"/>
                                                                 <nil key="textColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7xb-DS-jJm">
@@ -751,6 +774,7 @@
                                                                 <subviews>
                                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BagBlack Image" translatesAutoresizingMaskIntoConstraints="NO" id="SO9-kt-cOg">
                                                                         <rect key="frame" x="0.0" y="0.0" width="414" height="360"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="ProductImage"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="360" id="uHs-In-3RE"/>
                                                                         </constraints>
@@ -775,6 +799,7 @@
                                                                         </constraints>
                                                                         <state key="normal" image="StarUnSelected Icons"/>
                                                                         <state key="selected" image="StarSelected Icons"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="Star1-button"/>
                                                                         <connections>
                                                                             <action selector="ratingButton:" destination="BLp-WG-JHm" eventType="touchUpInside" id="Fc8-Kz-7m5"/>
                                                                         </connections>
@@ -786,6 +811,7 @@
                                                                         </constraints>
                                                                         <state key="normal" image="StarUnSelected Icons"/>
                                                                         <state key="selected" image="StarSelected Icons"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="Star2-button"/>
                                                                         <connections>
                                                                             <action selector="ratingButton:" destination="BLp-WG-JHm" eventType="touchUpInside" id="nAU-I9-vX7"/>
                                                                         </connections>
@@ -797,6 +823,7 @@
                                                                         </constraints>
                                                                         <state key="normal" image="StarUnSelected Icons"/>
                                                                         <state key="selected" image="StarSelected Icons"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="Star3-button"/>
                                                                         <connections>
                                                                             <action selector="ratingButton:" destination="BLp-WG-JHm" eventType="touchUpInside" id="jND-B8-Xqx"/>
                                                                         </connections>
@@ -808,6 +835,7 @@
                                                                         </constraints>
                                                                         <state key="normal" image="StarUnSelected Icons"/>
                                                                         <state key="selected" image="StarSelected Icons"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="Star4-button"/>
                                                                         <connections>
                                                                             <action selector="ratingButton:" destination="BLp-WG-JHm" eventType="touchUpInside" id="mxz-j4-S6y"/>
                                                                         </connections>
@@ -819,6 +847,7 @@
                                                                         </constraints>
                                                                         <state key="normal" image="StarUnSelected Icons"/>
                                                                         <state key="selected" image="StarSelected Icons"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="Star5-button"/>
                                                                         <connections>
                                                                             <action selector="ratingButton:" destination="BLp-WG-JHm" eventType="touchUpInside" id="o7o-ss-1p6"/>
                                                                         </connections>
@@ -844,6 +873,7 @@
                                                                         </constraints>
                                                                         <state key="normal" image="GreenColorUnSelected Icons"/>
                                                                         <state key="selected" image="GreenColorSelected Icons"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="GreenColor-button"/>
                                                                         <connections>
                                                                             <action selector="greenButton:" destination="BLp-WG-JHm" eventType="touchUpInside" id="UEa-66-9ln"/>
                                                                         </connections>
@@ -855,6 +885,7 @@
                                                                         </constraints>
                                                                         <state key="normal" image="BlueColorUnSelected Icons"/>
                                                                         <state key="selected" image="BlueColorSelected Icons"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="BlueColor-button"/>
                                                                         <connections>
                                                                             <action selector="blueButton:" destination="BLp-WG-JHm" eventType="touchUpInside" id="jWW-5g-zCo"/>
                                                                         </connections>
@@ -866,6 +897,7 @@
                                                                         </constraints>
                                                                         <state key="normal" image="BlackColorUnSelected Icons"/>
                                                                         <state key="selected" image="BlackColorSelected Icons"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="BlackColor-button"/>
                                                                         <connections>
                                                                             <action selector="blackButton:" destination="BLp-WG-JHm" eventType="touchUpInside" id="82a-Gl-mfs"/>
                                                                         </connections>
@@ -877,6 +909,7 @@
                                                                         </constraints>
                                                                         <state key="normal" image="GrayColorUnSelected Icons"/>
                                                                         <state key="selected" image="GrayColorSelected Icons"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="GrayColor-button"/>
                                                                         <connections>
                                                                             <action selector="grayButton:" destination="BLp-WG-JHm" eventType="touchUpInside" id="e7R-go-O4X"/>
                                                                         </connections>
@@ -895,6 +928,7 @@
                                                                             <constraint firstAttribute="width" constant="40" id="bG5-ka-SDS"/>
                                                                         </constraints>
                                                                         <state key="normal" image="SubtractMinus Icons"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="Subtract-button"/>
                                                                         <connections>
                                                                             <action selector="subtractButton:" destination="BLp-WG-JHm" eventType="touchUpInside" id="Ea6-68-kj9"/>
                                                                         </connections>
@@ -915,6 +949,7 @@
                                                                             <constraint firstAttribute="width" constant="40" id="1ik-Lz-ccU"/>
                                                                         </constraints>
                                                                         <state key="normal" image="AddPlus Icons"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="Add-button"/>
                                                                         <connections>
                                                                             <action selector="addButton:" destination="BLp-WG-JHm" eventType="touchUpInside" id="zc8-Lj-QL1"/>
                                                                         </connections>
@@ -943,16 +978,18 @@
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Highlights" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="y14-1p-ISZ">
                                                                 <rect key="frame" x="16" y="620" width="382" height="24"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="ProductHighlights-label"/>
                                                                 <nil key="textColor"/>
                                                             </label>
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="e7c-yK-9H2">
                                                                 <rect key="frame" x="16" y="636" width="382" height="120"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="ProductDescription-textView"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="120" id="qRc-mJ-AAd"/>
                                                                 </constraints>
                                                                 <string key="text">The Sauce Labs Backpack is the best of all worlds - infinite capacity and endless style.
-Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forget you have your world on your shoulders.</string>
+ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forget you have your world on your shoulders.</string>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -960,11 +997,12 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jiY-6b-eHk">
                                                                 <rect key="frame" x="16" y="652" width="382" height="120"/>
                                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="ProductHighlights-textView"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="120" id="2tk-t0-mDK"/>
                                                                 </constraints>
                                                                 <string key="text">The Sauce Labs Backpack is the best of all worlds - infinite capacity and endless style.
-Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forget you have your world on your shoulders.</string>
+ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forget you have your world on your shoulders.</string>
                                                                 <color key="textColor" systemColor="labelColor"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -1281,6 +1319,7 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                                     <constraint firstAttribute="width" constant="20" id="XNo-1r-ffU"/>
                                                 </constraints>
                                                 <state key="normal" title="Button" image="SortNameAscending Icons"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Sort-button"/>
                                                 <connections>
                                                     <action selector="sortButton:" destination="rBA-6E-4nt" eventType="touchUpInside" id="DfI-AJ-trA"/>
                                                 </connections>
@@ -1301,10 +1340,12 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3P7-ct-EWH">
                                                 <rect key="frame" x="160" y="70" width="94" height="24"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="24"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="NoItems-label"/>
                                                 <nil key="textColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CartEmpty Icons" translatesAutoresizingMaskIntoConstraints="NO" id="6lR-tR-bO2">
                                                 <rect key="frame" x="155" y="126" width="104" height="104"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="CartEmpty-icon"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="104" id="Rxr-0B-N5v"/>
                                                     <constraint firstAttribute="width" constant="104" id="hWC-tp-nUr"/>
@@ -1313,6 +1354,7 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Oh no! Your cart is empty. Fill it up with swag to complete your purchase." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="78g-ZD-fdH">
                                                 <rect key="frame" x="16" y="262" width="382" height="32"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="EmptyCartMessage-label"/>
                                                 <nil key="textColor"/>
                                             </label>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dDU-uz-QTe">
@@ -1321,6 +1363,7 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDz-1C-hD9" customClass="ButtonRoundCorner" customModule="My_Demo_App" customModuleProvider="target">
                                                         <rect key="frame" x="16" y="16" width="230" height="48"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="GoShopping"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                         <state key="normal" title="Go Shopping" backgroundImage="GreenButton Icons">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1361,7 +1404,7 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Products" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tfl-nE-xjB">
                                                 <rect key="frame" x="16" y="24" width="390" height="24"/>
-                                                <accessibility key="accessibilityConfiguration" identifier="title" label="title"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Products" label="Products"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
                                                 <nil key="textColor"/>
                                             </label>
@@ -1798,6 +1841,7 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                                 <color key="titleColor" systemColor="labelColor"/>
                                             </state>
                                             <state key="selected" backgroundImage="SortSelected Icons"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="SortNameAscending-button"/>
                                             <connections>
                                                 <action selector="nameAscendingButton:" destination="rBA-6E-4nt" eventType="touchUpInside" id="jrX-kx-h2I"/>
                                             </connections>
@@ -1814,6 +1858,7 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                                 <color key="titleColor" systemColor="labelColor"/>
                                             </state>
                                             <state key="selected" backgroundImage="SortSelected Icons"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="SortNameDescending-button"/>
                                             <connections>
                                                 <action selector="nameDescendingButton:" destination="rBA-6E-4nt" eventType="touchUpInside" id="ytA-IM-1Lr"/>
                                             </connections>
@@ -1830,6 +1875,7 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                                 <color key="titleColor" systemColor="labelColor"/>
                                             </state>
                                             <state key="selected" backgroundImage="SortSelected Icons"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="SortPriceAscending-button"/>
                                             <connections>
                                                 <action selector="priceAscendingButton:" destination="rBA-6E-4nt" eventType="touchUpInside" id="tSs-Ib-Iof"/>
                                             </connections>
@@ -1846,6 +1892,7 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                                 <color key="titleColor" systemColor="labelColor"/>
                                             </state>
                                             <state key="selected" backgroundImage="SortSelected Icons"/>
+                                            <accessibility key="accessibilityConfiguration" identifier="SortPriceDescending-button"/>
                                             <connections>
                                                 <action selector="priceDescendingButton:" destination="rBA-6E-4nt" eventType="touchUpInside" id="dKh-hE-AAV"/>
                                             </connections>
@@ -1910,6 +1957,7 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qXX-qF-bsm">
                                                         <rect key="frame" x="0.0" y="0.0" width="50" height="60"/>
+                                                        <accessibility key="accessibilityConfiguration" identifier="Back-button"/>
                                                         <connections>
                                                             <action selector="backButton:" destination="Gf8-Qh-8fM" eventType="touchUpInside" id="7Kk-bY-AlZ"/>
                                                         </connections>
@@ -1929,6 +1977,7 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NVC-XA-OqY">
                                                 <rect key="frame" x="50" y="22" width="39" height="16"/>
                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
+                                                <accessibility key="accessibilityConfiguration" identifier="Login-label"/>
                                                 <color key="textColor" red="0.094117647058823528" green="0.34509803921568627" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -1955,16 +2004,19 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j0I-Cb-PpS">
                                                                 <rect key="frame" x="16" y="24" width="102" height="24"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="Checkout"/>
                                                                 <nil key="textColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a shipping address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HTT-Gd-aEw">
                                                                 <rect key="frame" x="16" y="80" width="382" height="16"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="EnterShippingAddress-label"/>
                                                                 <nil key="textColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Full Name*" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0oi-VC-HIA">
                                                                 <rect key="frame" x="16" y="128" width="77" height="16"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="16"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="FullName-label"/>
                                                                 <nil key="textColor"/>
                                                             </label>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0V-aY-qZu">
@@ -1973,6 +2025,7 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Rebecca Winter" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7lY-fT-hvP" customClass="TextFieldBorderColor" customModule="My_Demo_App" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="382" height="45"/>
                                                                         <fontDescription key="fontDescription" name="ProximaNova-Regular" family="Proxima Nova" pointSize="16"/>
+                                                                        <accessibility key="accessibilityConfiguration" identifier="FullName-textField"/>
                                                                         <textInputTraits key="textInputTraits"/>
                                                                         <userDefinedRuntimeAttributes>
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
@@ -2734,6 +2787,7 @@ Fits in comfortably a laptop up to 15 inch. Never leave a thing behind and forge
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Checkout" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e4i-3K-uM1">
                                                                 <rect key="frame" x="16" y="24" width="102" height="24"/>
                                                                 <fontDescription key="fontDescription" name="ProximaNova-Medium" family="Proxima Nova" pointSize="24"/>
+                                                                <accessibility key="accessibilityConfiguration" identifier="Checkout"/>
                                                                 <nil key="textColor"/>
                                                             </label>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter a payment method" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H3C-d4-OgN">

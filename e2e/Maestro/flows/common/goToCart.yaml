@@ -1,0 +1,5 @@
+appId: ${APP_ID || "com.saucelabs.mydemo.app.ios"}
+---
+- tapOn:
+    id: ${output.navigation.cartTab}
+- assertVisible: ${output.cart.title}

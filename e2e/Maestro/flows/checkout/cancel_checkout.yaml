@@ -1,0 +1,31 @@
+appId: com.saucelabs.mydemo.app.ios
+tags:
+  - checkout
+  - cart
+  - positive
+---
+# This test is deliberately shorter: it verifies that an order can be abandoned
+# after review by returning to the cart and removing all items.
+- runFlow:
+    file: ../common/login.yaml
+    env:
+      EMAIL: ${EMAIL || "bob@example.com"}
+      PASSWORD: ${PASSWORD || "10203040"}
+
+- runFlow:
+    file: ../common/addProduct.yaml
+    env:
+      PRODUCT_NAME: ${output.testData.products.backpackRed.name}
+      PRODUCT_DETAIL: ${output.testData.products.backpackRed.detail}
+      ADDITIONAL_QUANTITY: 0
+
+- runFlow: ../common/goToCart.yaml
+- tapOn: ${output.cart.proceedToCheckout}
+- assertVisible: ${output.checkout.title}
+
+# Return to cart and cancel by removing the item.
+- tapOn:
+    id: ${output.navigation.cartTab}
+- assertVisible: ${output.cart.title}
+- tapOn: ${output.cart.removeItem}
+- assertVisible: ${output.cart.empty}
