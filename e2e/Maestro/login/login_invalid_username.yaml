@@ -1,7 +1,0 @@
-appId: com.saucelabs.mydemo.app.ios
----
-- runFlow: "../pages/login.yaml"
-  name: loginWithInvalidEmail
-  params:
-    email: "wronguser"
-    password: "10203040"

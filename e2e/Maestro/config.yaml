@@ -1,15 +1,13 @@
 appId: com.saucelabs.mydemo.app.ios
-name: My Demo App (iOS)
+name: My Demo App iOS - Maestro
 
-tags:
-  - login
-  - positive
-  - negative
-  - edge
-  - catalog
-  - cart
-  - checkout
-  - crud-read
-  - crud-create
-  - crud-update
-  - crud-delete
+flows:
+  - "flows/login/*"
+  - "flows/catalog/*"
+  - "flows/checkout/*"
+
+testOutputDir: build/maestro-results
+
+platform:
+  ios:
+    snapshotKeyHonorModalViews: true

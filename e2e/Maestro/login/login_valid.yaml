@@ -1,6 +1,0 @@
-appId: com.saucelabs.mydemo.app.ios
----
-- runFlow: "../pages/login.yaml"
-  name: login
-  params:
-    email: "bob@example.com"

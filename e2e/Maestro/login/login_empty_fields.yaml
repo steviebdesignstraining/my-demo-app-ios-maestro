@@ -1,4 +1,0 @@
-appId: com.saucelabs.mydemo.app.ios
----
-- runFlow: "../pages/login.yaml"
-  name: loginWithEmptyFields

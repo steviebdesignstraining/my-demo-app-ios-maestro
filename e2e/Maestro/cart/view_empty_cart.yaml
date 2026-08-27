@@ -1,9 +1,0 @@
-appId: com.saucelabs.mydemo.app.ios
----
-- launchApp:
-    clearState: true
-- tapOn: "bob@example.com"
-- tapOn: "Login"
-- tapOn: "Cart-tab-item"
-- assertVisible: "No Items"
-- assertVisible: "Oh no! Your cart is empty"
