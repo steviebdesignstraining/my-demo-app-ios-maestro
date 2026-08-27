@@ -35,7 +35,11 @@ env:
   # ensures newly added/subfoldered flows are picked up automatically.
   MAESTRO_DIR: "e2e/Maestro"
   MAESTRO_REPORT_PATH: "build/maestro-report.html"
-  MAESTRO_DRIVER_STARTUP_TIMEOUT: "120"
+  # NOTE: this value is in MILLISECONDS, not seconds (Maestro CLI reads it
+  # directly as millis). "120" previously meant "wait 120ms", which is why
+  # every run failed with IOSDriverTimeoutException right after install.
+  # 180000 = 3 minutes, generous headroom for a cold GitHub-hosted macOS runner.
+  MAESTRO_DRIVER_STARTUP_TIMEOUT: "180000"
 jobs:
   # ============================================================
   # 1. Build .app + Run Maestro iOS Tests
@@ -140,9 +144,16 @@ jobs:
         run: |
           set -euo pipefail
           xcrun simctl boot "$SIMULATOR_NAME" || true
+          # `simctl boot` returns as soon as the boot *starts*, and a device
+          # can report state "Booted" well before Springboard/UI services are
+          # actually up. Racing Maestro's XCTest driver against that half-booted
+          # state is a common cause of "iOS driver not ready in time". Use
+          # bootstatus (as e2e/Maestro/run.sh already does) to block until the
+          # simulator has *fully* finished booting.
+          xcrun simctl bootstatus "$SIMULATOR_NAME" -b
           xcrun simctl list devices booted | grep -q "$SIMULATOR_NAME" \
             || { echo "ERROR: Simulator '$SIMULATOR_NAME' is not booted"; xcrun simctl list devices; exit 1; }
-          echo "Simulator '$SIMULATOR_NAME' is booted."
+          echo "Simulator '$SIMULATOR_NAME' is fully booted."
 
       - name: Install app on simulator
         shell: bash
