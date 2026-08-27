@@ -34,33 +34,51 @@ tags:
 - tapOn: "Rebecca Winter"
 - eraseText
 - inputText: ${SHIPPING_NAME || "Stephen Brown"}
+- tapOn:
+    id: ${output.checkout.title}
 - tapOn: "Mandorley 112"
 - eraseText
 - inputText: ${SHIPPING_ADDRESS || "Flat 40 Williams Court"}
+- tapOn:
+    id: ${output.checkout.title}
 - tapOn: "Truro"
 - eraseText
 - inputText: ${SHIPPING_CITY || "London"}
+- tapOn:
+    id: ${output.checkout.title}
 - tapOn: "89750"
 - eraseText
 - inputText: ${SHIPPING_ZIP || "CR0 5JJ"}
+- tapOn:
+    id: ${output.checkout.title}
 - tapOn: "United Kingdom"
 - eraseText
 - inputText: ${SHIPPING_COUNTRY || "United Kingdom"}
+- tapOn:
+    id: ${output.checkout.title}
 - tapOn: ${output.checkout.toPayment}
 
 - assertVisible: ${output.checkout.title}
 - tapOn: "Maxim Winter"
 - eraseText
 - inputText: ${CARD_NAME || "Stephen Brown"}
+- tapOn:
+    id: ${output.checkout.title}
 - tapOn: "3258 1265 7568 7896"
 - eraseText
 - inputText: ${CARD_NUMBER || "1234 5678 9876 5432"}
+- tapOn:
+    id: ${output.checkout.title}
 - tapOn: "03/25"
 - eraseText
 - inputText: ${CARD_EXPIRY || "0327"}
+- tapOn:
+    id: ${output.checkout.title}
 - tapOn: "123"
 - eraseText
 - inputText: ${SECURITY_CODE || "123"}
+- tapOn:
+    id: ${output.checkout.title}
 - tapOn: ${output.checkout.reviewOrder}
 
 - assertVisible: "$${output.testData.expected.checkoutTotal}"
